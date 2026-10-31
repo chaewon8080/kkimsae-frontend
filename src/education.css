@@ -1,0 +1,205 @@
+.eduPage{--edu-blue:#1d4ed8;--edu-ink:#17243c;max-width:1080px!important;margin:0 auto;padding:36px 24px 64px!important;color:var(--edu-ink)}
+.eduPage *{box-sizing:border-box}.eduPage button{font:inherit;cursor:pointer;border:1px solid #cbd5e1;border-radius:4px;background:#fff;color:#253650;padding:14px 22px;font-weight:600;line-height:1.5}.eduPage button:hover{background:#eef3fb}.eduPage button:focus-visible{outline:3px solid #60a5fa;outline-offset:4px}.eduPage .eduPrimary{background:var(--edu-blue);border-color:var(--edu-blue);color:#fff}.eduPage .eduPrimary:hover{background:#1e40af}.eduPage h2{font-size:clamp(25px,4vw,42px);line-height:1.35;letter-spacing:-.04em;margin:12px 0 20px}.eduPage h2:focus{outline:none}.eduPage h3{font-size:21px;margin:28px 0 16px}.eduTop{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #dce3ed;padding-bottom:18px;color:#64748b;font-size:13px}.eduEyebrow{font-size:12px;font-weight:750;color:var(--edu-blue);letter-spacing:.06em}.eduIntro{padding:56px 0 32px;max-width:760px}.eduLead{font-size:18px;line-height:1.85;color:#52617a}.eduMeta{display:flex;flex-wrap:wrap;gap:12px 24px;margin:28px 0;font-size:14px;color:#52617a}.eduSmall{font-size:13px!important;line-height:1.8;color:#68768c;max-width:680px;margin-top:24px}.eduProgress{display:grid;grid-template-columns:repeat(4,1fr);padding:0;margin:30px 0;list-style:none;gap:12px}.eduProgress li{border-top:3px solid #e2e8f0;padding-top:12px;color:#8794a8;font-size:14px}.eduProgress li span{margin-right:8px}.eduProgress li.isActive{border-color:var(--edu-blue);color:var(--edu-blue)}.eduStage{border:1px solid #dce3ed;background:#fff}.eduStageHeading{padding:28px 32px;border-bottom:1px solid #e2e8f0}.eduStageHeading h2{font-size:25px;margin-bottom:0}.eduPhone{text-align:center;padding:32px 20px 38px;background:#f3f6fc}.eduPhoneStatus{font-size:12px;color:#697891}.eduCallerIcon{font-size:46px;color:var(--edu-blue);margin:20px 0 12px}.eduCaller{font-size:29px;font-weight:700;letter-spacing:.02em;margin:0 0 8px}.eduPhone>p:last-child{font-size:14px;color:#6c7990}.eduConversation{padding:28px 32px;background:#f6f8fc;display:flex;flex-direction:column;gap:24px}.eduMessage{max-width:80%}.eduMessage>span{font-size:12px;color:#66748a}.eduMessage p{background:#fff;border:1px solid #e1e7f0;border-left:3px solid #93b4ee;padding:18px 20px;line-height:1.85;margin:8px 0 0;white-space:pre-wrap}.eduMessage.isMine{align-self:flex-end}.eduMessage.isMine p{background:#eaf1ff;border-color:#cdddff}.eduDecision{padding:24px 32px}.eduDecision>p{font-size:14px;font-weight:600;margin-top:0;margin-bottom:16px}.eduButtons{display:flex;flex-wrap:wrap;gap:12px}.eduButtons button{flex:1;min-width:180px}.eduExit{display:block;margin:22px auto 0;border:0!important;color:#64748b!important;background:transparent!important;font-size:13px!important}.eduAtm{max-width:580px;margin:32px auto;border:1px solid #cbd5e1;padding:24px;background:#f8faff}.eduAtmHeader{display:flex;justify-content:space-between;color:var(--edu-blue);font-weight:700;border-bottom:2px solid var(--edu-blue);padding-bottom:16px}.eduAtmHeader span{font-size:13px}.eduAtm dl>div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #dce3ed;padding:18px 0}.eduAtm dd{margin:0;font-weight:700}.eduAtm dt{color:#64748b}.eduResult{padding-top:36px}.eduReview{list-style:none;padding:0}.eduReview li{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid #e2e8f0}.eduReviewNumber{font-size:20px;color:var(--edu-blue);font-weight:700}.eduReview h4{margin:0 0 8px;font-size:16px}.eduReview p,.eduLesson p{margin:0;line-height:1.9;color:#56657b}.eduLesson{background:#f1f5fd;border-left:3px solid var(--edu-blue);padding:24px;margin:28px 0}.eduLesson h3{margin-top:0}.eduLesson p+p{margin-top:12px}@media(max-width:600px){.eduPage{padding:24px 16px 44px!important}.eduTop{font-size:11px}.eduIntro{padding-top:36px}.eduProgress{gap:6px}.eduProgress li{font-size:11px}.eduProgress li span{display:block;margin-bottom:4px}.eduStageHeading,.eduConversation,.eduDecision{padding:20px}.eduStageHeading h2{font-size:22px}.eduMessage{max-width:95%}.eduMessage p{padding:14px;font-size:14px}.eduButtons{flex-direction:column}.eduButtons button{width:100%;min-width:0}.eduAtm{margin:20px 14px;padding:16px}.eduAtm dl>div{font-size:14px}.eduCaller{font-size:25px}}
+
+/* 상단 소리 설정 */
+.eduTopRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eduPage .eduSoundToggle {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+  border-color: #dce3ed;
+  white-space: nowrap;
+}
+
+/* 단계 표시를 제거한 체험 화면의 상단 간격 */
+.eduPage > .eduStage {
+  margin-top: 28px;
+}
+
+/* 전화 수신 화면 */
+.eduPhoneRinging {
+  overflow: hidden;
+  padding-top: 32px;
+  padding-bottom: 34px;
+}
+
+.eduRingVisual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 160px;
+  margin: 16px auto;
+}
+
+.eduRingingIcon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e3edff;
+  color: #1d4ed8;
+  font-size: 42px;
+  animation: eduPhoneShake 1.3s ease-in-out infinite;
+}
+
+.eduRingWave {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #a7c3f4;
+  border-radius: 50%;
+  animation: eduRingExpand 2.4s ease-out infinite;
+}
+
+.eduRingWaveDelayed {
+  animation-delay: 1.2s;
+}
+
+.eduIncomingStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.eduIncomingStatus > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563eb;
+  animation: eduIncomingBlink 1.4s ease-in-out infinite;
+}
+
+/* 한 말풍선씩 나타나는 대화 영역 */
+.eduConversationLive {
+  min-height: 280px;
+  max-height: 520px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.eduMessageEnter {
+  flex-shrink: 0;
+  animation: eduMessageAppear 0.25s ease-out both;
+}
+
+/* 다음 대사 버튼 */
+.eduDialogueControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eduDialogueControl > span {
+  color: #738096;
+  font-size: 13px;
+}
+
+.eduDialogueControl > button {
+  flex-shrink: 0;
+  min-width: 150px;
+}
+
+/* 전화 진동 */
+@keyframes eduPhoneShake {
+  0%, 40%, 100% {
+    transform: rotate(0);
+  }
+
+  5%, 15%, 25% {
+    transform: rotate(-12deg);
+  }
+
+  10%, 20%, 30% {
+    transform: rotate(12deg);
+  }
+}
+
+/* 수신 파동 */
+@keyframes eduRingExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes eduIncomingBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* 말풍선 등장 */
+@keyframes eduMessageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .eduTopRight {
+    gap: 8px;
+  }
+
+  .eduTopRight > span {
+    display: none;
+  }
+
+  .eduConversationLive {
+    min-height: 240px;
+    max-height: 460px;
+  }
+
+  .eduDialogueControl {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .eduDialogueControl > button {
+    width: 100%;
+  }
+}
+
+/* 움직임 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .eduRingingIcon,
+  .eduRingWave,
+  .eduIncomingStatus > span,
+  .eduMessageEnter {
+    animation: none;
+  }
+
+  .eduRingWave {
+    display: none;
+  }
+}

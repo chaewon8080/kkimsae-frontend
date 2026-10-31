@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { kkimsaeApi } from './api/kkimsaeApi';
 import { getAuthVersion, getTokens } from './api/client';
 import './styles.css';
+import EducationPage from './EducationPage';
 import { PublicationSettings, PublicCaseSearch, AdminPublications } from './PublicationPages';
 
 /* 공통 설정 */
@@ -37,8 +38,8 @@ const heroData = {
   ],
   education: [
     '03 · 대화 교육',
-    '상황을 바꿔가며 대처 연습',
-    '공식 자료를 바탕으로 확인하는 행동을 연습해보세요.',
+    '대화 속 선택으로 대처 연습',
+    '가상 상황을 체험하고 내가 선택한 행동을 돌아보세요.',
   ],
   analysis: [
     '04 · AI 분석',
@@ -1677,7 +1678,7 @@ export default function App() {
 
             <div>
               <p className="eyebrow">02 · 예방과 연습</p>
-              <h2>상황을 바꿔가며 대처 연습</h2>
+              <h2>대화 속 선택으로 대처 연습</h2>
               <p>공식 자료 기반 대화 교육을 준비하고 있어요.</p>
               <button onClick={() => navigate('education')}>
                 교육 둘러보기 →
@@ -1881,33 +1882,7 @@ export default function App() {
         )}
 
       {/* 대화 교육 */}
-      {page === 'education' && (
-        <main>
-          <div className="notice">
-            교육 콘텐츠 준비 중입니다. 공식 자료와 이용 조건을
-            검토한 뒤 제공할 예정입니다.
-          </div>
-
-          <div className="educationGrid">
-            {[
-              '카드 배송 연락',
-              '가족·지인 사칭',
-              '리뷰 알바 제안',
-            ].map((title, index) => (
-              <section key={title}>
-                <p className="eyebrow">
-                  0{index + 1} · 준비 중
-                </p>
-                <h2>{title}</h2>
-                <p>
-                  조건 선택 → 대화 체험 → 모의 행동 → 결과·해설
-                </p>
-                <button disabled>콘텐츠 준비 중</button>
-              </section>
-            ))}
-          </div>
-        </main>
-      )}
+      {page === 'education' && <EducationPage />}
 
       {page === 'search' && <PublicCaseSearch />}
       {page === 'admin' && (
