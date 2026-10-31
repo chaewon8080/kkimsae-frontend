@@ -1,0 +1,1972 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+  color: #15283d;
+  background: #f6f8fb;
+  font-synthesis: none;
+
+  --blue: #2563a8;
+  --navy: #173f6d;
+  --line: #dbe4ed;
+  --muted: #68798b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  line-height: 1.65;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #cbd8e5;
+  background: white;
+  color: #1d3854;
+  padding: 10px 16px;
+  font-weight: 700;
+  border-radius: 9px;
+}
+
+button:hover {
+  border-color: #7c9fbe;
+  background: #f0f5fa;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #90b8e9;
+  outline-offset: 3px;
+}
+
+.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.primary:hover {
+  background: #1e538f;
+  border-color: #1e538f;
+}
+
+.danger {
+  color: #b33b35;
+}
+
+.wide {
+  width: 100%;
+}
+
+.textButton,
+.link {
+  border: 0;
+  background: transparent;
+}
+
+.link {
+  padding: 0;
+  text-align: left;
+  color: var(--navy);
+  font-size: inherit;
+}
+
+.plainFieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.plainFieldset:disabled {
+  opacity: 0.75;
+}
+
+/* ───────────── 헤더·로고 ───────────── */
+
+.topbar {
+  height: 70px;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.headerInner {
+  max-width: 1180px;
+  height: 100%;
+  margin: auto;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.logoButton {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.logoButton:hover {
+  background: transparent;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #173f6d;
+}
+
+.logoMark {
+  width: 29px;
+  height: 29px;
+  border-radius: 9px 9px 9px 3px;
+  background: #2867a6;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+}
+
+.headerInner nav {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+
+.headerInner nav button {
+  border: 0;
+  background: transparent;
+  color: #5b6f83;
+  padding: 9px 11px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.headerInner nav button.active {
+  color: #1f5d98;
+  background: #eaf1f9;
+}
+
+.authHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.authHeader button {
+  white-space: nowrap;
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* ───────────── 이미지 배너 ───────────── */
+
+.hero {
+  height: 260px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--navy);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  color: white;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 30, 57, 0.76),
+    rgba(8, 30, 57, 0.16) 85%
+  );
+}
+
+.hero-home {
+  background-image: url('/images/hero-home.jpg');
+}
+
+.hero-incidents {
+  background-image: url('/images/hero-community.jpg');
+}
+
+.hero-education {
+  background-image: url('/images/hero-analysis.jpg');
+}
+
+.hero-analysis {
+  background-image: url('/images/hero-analysis.jpg');
+}
+
+.heroInner {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  margin: auto;
+  padding: 34px 22px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #3975ae;
+  margin: 0 0 9px;
+}
+
+.hero .eyebrow {
+  color: #c9def1;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 40px;
+  letter-spacing: -0.05em;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.hero p:last-child {
+  margin: 0;
+  color: #e7f0f8;
+  max-width: 750px;
+}
+
+/* ───────────── 공통 레이아웃 ───────────── */
+
+main {
+  max-width: 1180px;
+  margin: auto;
+  padding: 42px 22px 84px;
+  min-height: 60vh;
+}
+
+main,
+section,
+article,
+aside {
+  min-width: 0;
+}
+
+h1 {
+  font-size: 34px;
+  letter-spacing: -0.05em;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 23px;
+  letter-spacing: -0.035em;
+  margin: 0 0 12px;
+}
+
+h3 {
+  font-size: 17px;
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 8px 0 20px;
+  color: var(--muted);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.heading h2,
+.heading h3 {
+  margin: 0;
+}
+
+.heading p {
+  font-size: 13px;
+  margin: 5px 0 0;
+}
+
+.actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.section {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  background: #eaf1f9;
+  color: #356792;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.empty {
+  color: #7b8da0;
+  padding: 65px 20px;
+  text-align: center;
+  border: 1px dashed #d1dce7;
+}
+
+.empty button {
+  display: block;
+  margin: 16px auto 0;
+}
+
+.notice {
+  border-left: 3px solid #3d78ae;
+  background: #eef4fa;
+  padding: 16px 20px;
+  color: #42617f;
+}
+
+.error {
+  color: #b33b35;
+  font-weight: 600;
+  white-space: pre-line;
+}
+
+.requestError {
+  border-left: 3px solid #b33b35;
+  background: #fff0ef;
+  padding: 14px 18px;
+  margin: 0 0 24px;
+}
+
+.toast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 13px max(22px, calc((100vw - 1136px) / 2));
+  background: #eaf2fc;
+  color: #244f7f;
+  font-size: 14px;
+}
+
+.toast button {
+  background: transparent;
+  border: 0;
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+/* ───────────── 홈 ───────────── */
+
+.homeMainActions {
+  padding-bottom: 30px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.listRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.listRow strong {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.listRow small {
+  display: block;
+  color: #7b8da0;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.homeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  margin-top: 45px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.homeGrid > div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 35px;
+}
+
+/* ───────────── 사건 목록 ───────────── */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 38px;
+}
+
+.workspace aside {
+  border-right: 1px solid var(--line);
+  padding-right: 20px;
+}
+
+.listRefresh {
+  margin: 9px 0 10px;
+  font-size: 12px;
+}
+
+.caseNav {
+  display: block;
+  width: 100%;
+  padding: 15px 12px;
+  margin-top: 8px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.caseNav strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.caseNav small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #7b8da0;
+}
+
+.caseNav.selected {
+  background: #eaf0ff;
+  color: #214fb0;
+}
+
+/* ───────────── 사건 상세 ───────────── */
+
+.incidentDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 22px;
+}
+
+.incidentDetailHeader h2 {
+  font-size: 28px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.incidentMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 12px;
+  color: #7b8da0;
+}
+
+.incidentOverview {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.incidentReadSection {
+  margin-top: 28px;
+}
+
+.incidentDescription {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #34495f;
+  line-height: 1.9;
+}
+
+.incidentInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 32px;
+  margin: 28px 0 0;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.incidentInfoGrid dt {
+  color: #7b8da0;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.incidentInfoGrid dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.readClueList {
+  border-top: 1px solid var(--line);
+}
+
+.readClueRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.readClueRow > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.readClueRow strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.readClueRow small {
+  display: block;
+  color: #7b8da0;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.readClueRow .textButton {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ───────────── 입력 폼 ───────────── */
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  border: 1px solid #c7d5e2;
+  background: white;
+  padding: 12px 14px;
+  margin-top: 8px;
+  border-radius: 7px;
+  color: #15283d;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+.clueEditor {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 12px 16px;
+  padding: 20px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  align-items: end;
+}
+
+.clueEditor label {
+  margin-bottom: 0;
+}
+
+.clueEditor > button {
+  justify-self: start;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.check input {
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ───────────── 타임라인 ───────────── */
+
+.readTimeline {
+  margin: 24px 0;
+}
+
+.readTimelineItem {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding: 0 0 28px;
+}
+
+.readTimelineItem::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  bottom: -2px;
+  left: 5px;
+  width: 1px;
+  background: #d5e1ee;
+}
+
+.readTimelineItem:last-child::before {
+  display: none;
+}
+
+.timelineDot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  margin-top: 10px;
+  border-radius: 50%;
+  background: #2867a6;
+  box-shadow: 0 0 0 4px #edf3fa;
+}
+
+.timelineReadBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.timelineReadBody .heading {
+  margin-bottom: 7px;
+}
+
+.timelineReadBody time {
+  font-size: 13px;
+  font-weight: 700;
+  color: #456582;
+}
+
+.timelineReadBody p {
+  margin: 10px 0 0;
+  color: #34495f;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.timelineReadBody .textButton {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.timelineEntry {
+  border-left: 2px solid #88a9e4;
+  padding: 16px 0 16px 20px;
+  margin-bottom: 25px;
+}
+
+/* ───────────── 유사 사례 ───────────── */
+
+.resultRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 23px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.resultRow > div {
+  min-width: 0;
+}
+
+.resultRow h3 {
+  margin: 10px 0;
+}
+
+.resultRow p {
+  margin-bottom: 5px;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 16px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+thead {
+  background: #eaf1f9;
+}
+
+tbody th {
+  background: #f0f4f8;
+  font-size: 13px;
+}
+
+td {
+  white-space: pre-line;
+  font-size: 13px;
+}
+
+.match {
+  display: block;
+  margin-top: 8px;
+  color: #26745a;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ───────────── 계정 ───────────── */
+
+.authPage {
+  max-width: 570px;
+  min-height: 70vh;
+  padding-top: 55px;
+}
+
+.authPanel {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 35px;
+}
+
+.authPanel h1 {
+  font-size: 30px;
+}
+
+.authPanel form {
+  margin-top: 28px;
+}
+
+.authPanel label {
+  font-size: 14px;
+}
+
+.passwordField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.passwordField input {
+  flex: 1;
+  min-width: 0;
+}
+
+.passwordField button {
+  margin-top: 8px;
+  white-space: nowrap;
+  padding: 10px 12px;
+}
+
+.authSwitch {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 22px;
+}
+
+.authSwitch button {
+  color: var(--blue);
+  margin-left: 8px;
+}
+
+/* ───────────── 교육·AI 분석 ───────────── */
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.educationGrid section {
+  border-top: 3px solid #7c9cc9;
+  padding-top: 25px;
+}
+
+.searchBox {
+  max-width: 820px;
+  padding: 26px;
+  background: white;
+  border: 1px solid var(--line);
+}
+
+/* ───────────── 푸터 ───────────── */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px max(22px, calc((100vw - 1136px) / 2));
+  border-top: 1px solid var(--line);
+  color: #7b8da0;
+  font-size: 13px;
+}
+
+/* ───────────── 반응형 ───────────── */
+
+@media (max-width: 900px) {
+  .topbar {
+    height: auto;
+  }
+
+  .headerInner {
+    gap: 10px;
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .headerInner nav {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+    overflow-x: auto;
+  }
+
+  .headerInner nav button {
+    flex-shrink: 0;
+  }
+
+  .authHeader {
+    margin-left: auto;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .workspace aside {
+    border-right: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .homeGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .homeGrid > div + div {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+
+  .educationGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerInner {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .authHeader button {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+
+  main {
+    padding: 30px 16px 65px;
+  }
+
+  .hero {
+    height: 220px;
+  }
+
+  .heroInner {
+    padding: 26px 16px;
+  }
+
+  .hero h1 {
+    font-size: 29px;
+  }
+
+  .hero p:last-child {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .incidentDetailHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .incidentDetailHeader h2 {
+    font-size: 24px;
+  }
+
+  .incidentInfoGrid,
+  .formGrid,
+  .clueEditor {
+    grid-template-columns: 1fr;
+  }
+
+  .incidentInfoGrid {
+    gap: 18px;
+  }
+
+  .readClueRow {
+    gap: 10px;
+  }
+
+  .readClueRow .badge {
+    font-size: 10px;
+  }
+
+  .readClueRow .textButton {
+    padding: 6px;
+  }
+
+  .authPage {
+    padding-top: 30px;
+  }
+
+  .authPanel {
+    padding: 24px 20px;
+  }
+
+  .searchBox {
+    padding: 20px;
+  }
+
+  .listRow > span:last-child {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* ───────────────────────────
+   사건 상세: 읽기 중심 레이아웃
+─────────────────────────── */
+
+.workspace {
+  grid-template-columns: 205px minmax(0, 1fr);
+  gap: 38px;
+  align-items: start;
+}
+
+.workspace > section {
+  min-width: 0;
+}
+
+.workspace aside {
+  padding-right: 20px;
+}
+
+.workspace .caseNav {
+  padding: 15px 12px;
+}
+
+.workspace .caseNav strong {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.workspace .caseNav small {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+/* 제목 영역 */
+.incidentDetail .caseDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0 0 28px;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid #dbe4ed;
+  background: transparent;
+  position: static;
+  height: auto;
+}
+
+.caseTitleArea {
+  flex: 1;
+  min-width: 0;
+}
+
+.casePrivateLabel {
+  display: block;
+  margin-bottom: 12px;
+  color: #68798b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.incidentDetail .caseTitleArea h2 {
+  margin: 0;
+  color: #15283d;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+
+.caseDates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin-top: 15px;
+}
+
+.caseDates > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #8793a1;
+  font-size: 12px;
+}
+
+.caseDateLabel {
+  color: #68798b;
+}
+
+.caseHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.caseHeaderActions button {
+  padding: 9px 13px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.caseHeaderActions .caseDeleteButton {
+  border-color: transparent;
+  background: transparent;
+  color: #8c6a6a;
+}
+
+.caseHeaderActions .caseDeleteButton:hover {
+  border-color: #ead4d4;
+  background: #fff4f4;
+  color: #b33b35;
+}
+
+/* 사건 설명 */
+.caseDescriptionSection {
+  padding: 29px 0 25px;
+}
+
+.incidentDetail .caseDescriptionSection h3 {
+  margin: 0 0 15px;
+  color: #53677c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.incidentDetail .caseDescriptionText {
+  margin: 0;
+  color: #263c51;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.95;
+  letter-spacing: -0.015em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 72ch;
+}
+
+/* 기본 정보: 라벨과 값을 같은 줄에 */
+.caseFacts {
+  margin: 0;
+  padding: 7px 0;
+  border-top: 1px solid #e2e8ef;
+  border-bottom: 1px solid #e2e8ef;
+}
+
+.caseFacts > div {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 20px;
+  padding: 13px 0;
+}
+
+.caseFacts > div + div {
+  border-top: 1px solid #edf0f4;
+}
+
+.caseFacts dt {
+  color: #7b8999;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.caseFacts dd {
+  margin: 0;
+  color: #243a50;
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* 단서 영역 */
+.caseCluesSection {
+  margin-top: 34px;
+}
+
+.caseSectionTitle {
+  margin-bottom: 16px;
+}
+
+.caseSectionTitle > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.incidentDetail .caseSectionTitle h3 {
+  margin: 0;
+  color: #20384f;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.caseSectionTitle > div > span {
+  color: #3c70a3;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.caseSectionTitle p {
+  margin: 6px 0 0;
+  color: #8491a0;
+  font-size: 12px;
+}
+
+.caseClueTable {
+  border-top: 2px solid #d5dfea;
+}
+
+.caseClueLine {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 19px 0;
+  border-bottom: 1px solid #e1e7ee;
+}
+
+.caseClueType {
+  color: #728398;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caseClueValue {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  min-width: 0;
+}
+
+.caseBankName {
+  color: #718195;
+  font-size: 13px;
+}
+
+.caseClueValue strong {
+  color: #223b55;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.caseCopyButton {
+  padding: 6px 11px;
+  border: 1px solid #dce4ed;
+  border-radius: 5px;
+  background: transparent;
+  color: #6a8096;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.caseCopyButton:hover {
+  border-color: #9db5cf;
+  color: #2563a8;
+  background: #edf3fa;
+}
+
+.caseNoClues {
+  padding: 22px 0;
+  border-top: 1px solid #dbe4ed;
+  color: #8a96a4;
+  font-size: 13px;
+}
+
+/* 타임라인으로 자연스럽게 연결 */
+.caseRecordSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 14px 0 0;
+  color: #8390a0;
+  font-size: 12px;
+}
+
+.caseRecordSummary strong {
+  color: #536e89;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 타임라인도 여백과 글자 크기 정리 */
+.workspace .readTimeline {
+  margin: 28px 0 12px;
+}
+
+.workspace .readTimelineItem {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.workspace .timelineReadBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.workspace .timelineReadBody .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 9px;
+}
+
+.workspace .timelineReadBody time {
+  color: #647b93;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.workspace .timelineReadBody p {
+  color: #2c4258;
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 10px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.workspace .timelineReadBody .badge {
+  border-radius: 3px;
+  padding: 3px 8px;
+  background: #edf2f8;
+  color: #52779b;
+  font-size: 11px;
+}
+
+.workspace .timelineReadBody .textButton {
+  padding: 4px 7px;
+  color: #8291a2;
+  font-size: 11px;
+}
+
+/* 모바일 */
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .workspace aside {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .incidentDetail .caseDetailHeader {
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 22px;
+  }
+
+  .incidentDetail .caseTitleArea h2 {
+    font-size: 23px;
+  }
+
+  .caseHeaderActions {
+    padding-top: 0;
+  }
+
+  .caseDates {
+    gap: 5px 16px;
+  }
+
+  .incidentDetail .caseDescriptionText {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .caseFacts > div {
+    grid-template-columns: 115px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .caseFacts dt {
+    font-size: 12px;
+  }
+
+  .caseFacts dd {
+    font-size: 13px;
+  }
+
+  .caseClueLine {
+    grid-template-columns: 65px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 17px 0;
+  }
+
+  .caseClueType {
+    font-size: 11px;
+  }
+
+  .caseClueValue strong {
+    font-size: 13px;
+  }
+
+  .caseBankName {
+    font-size: 12px;
+  }
+
+  .caseCopyButton {
+    padding: 6px 8px;
+  }
+}
+
+/* ==================================
+   사건 상세: 제목·본문 시작선 통일
+================================== */
+
+.workspace .caseReadable {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.workspace .caseReadableTitle {
+  display: block;
+  padding: 0 0 26px;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dbe4ed;
+}
+
+.workspace .caseReadableStatus {
+  margin: 0 0 12px;
+  padding: 0;
+  color: #7a8999;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.workspace .caseReadableTitle h2 {
+  margin: 0;
+  padding: 0;
+  color: #172e45;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
+}
+
+/* 수정·삭제 버튼: 제목 아래 */
+.workspace .caseReadableActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.workspace .caseReadableActions button {
+  padding: 8px 14px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 작성·수정 날짜 간격 */
+.workspace .caseReadableDates {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.workspace .caseReadableDates > span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.workspace .caseReadableDates > span > span {
+  color: #8b98a6;
+  font-size: 12px;
+}
+
+.workspace .caseReadableDates time {
+  color: #6a7d91;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 본문 및 각 구역 */
+.workspace .caseReadableSection {
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+.workspace .caseReadableSection h3 {
+  margin: 0 0 16px;
+  padding: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #243d55;
+  line-height: 1.6;
+}
+
+.workspace .caseReadableDescription {
+  margin: 0;
+  padding: 0;
+  color: #354b60;
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.workspace .caseReadableSectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.workspace .caseReadableSectionHeading h2,
+.workspace .caseReadableSectionHeading h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.workspace .caseReadableSectionHeading > span {
+  color: #6d86a0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ==================================
+   기본 정보 표
+================================== */
+
+.workspace .caseInfoTableWrap {
+  width: 100%;
+}
+
+.workspace .caseInfoTable {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.workspace .caseInfoTable th,
+.workspace .caseInfoTable td {
+  padding: 16px 18px;
+  border: 1px solid #dbe4ed;
+  vertical-align: top;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.workspace .caseInfoTable th {
+  width: 190px;
+  color: #536c84;
+  background: #edf2f8;
+  font-weight: 600;
+}
+
+.workspace .caseInfoTable td {
+  color: #2b435a;
+  background: #fff;
+  font-weight: 400;
+  white-space: pre-wrap;
+}
+
+/* ==================================
+   사건 단서 표
+================================== */
+
+.workspace .caseClueTableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.workspace .caseEvidenceTable {
+  width: 100%;
+  min-width: 390px;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.workspace .caseEvidenceTable th,
+.workspace .caseEvidenceTable td {
+  border: 1px solid #dbe4ed;
+  padding: 15px 18px;
+  vertical-align: middle;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.workspace .caseEvidenceTable thead th {
+  background: #edf2f8;
+  color: #536c84;
+  font-weight: 600;
+}
+
+.workspace .caseEvidenceTable tbody td {
+  background: #fff;
+  color: #2b435a;
+  white-space: normal;
+}
+
+.workspace .caseEvidenceTable th:first-child {
+  width: 110px;
+}
+
+.workspace .caseEvidenceTable th:last-child {
+  width: 82px;
+}
+
+.workspace .caseEvidenceTable th:last-child,
+.workspace .caseEvidenceTable td:last-child:not([colspan]) {
+  text-align: center;
+}
+
+.workspace .caseEvidenceValue {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  min-width: 0;
+}
+
+.workspace .caseEvidenceValue > span {
+  overflow-wrap: anywhere;
+}
+
+.workspace .caseEvidenceBank {
+  color: #7c8ea0;
+  font-size: 12px;
+}
+
+.workspace .caseEvidenceCopy {
+  padding: 5px 10px;
+  border: 1px solid #d3deea;
+  border-radius: 4px;
+  background: #fff;
+  color: #5b7691;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.workspace .caseEvidenceCopy:hover {
+  background: #edf3fa;
+  border-color: #95b1cc;
+}
+
+.workspace .caseEvidenceTable .caseEvidenceEmpty {
+  padding: 25px 18px;
+  text-align: center;
+  color: #8b98a6;
+}
+
+.workspace .caseReadableFootnote {
+  margin: 12px 0 0;
+  color: #8b98a6;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ==================================
+   타임라인: 기록별 카드
+================================== */
+
+.workspace .caseTimelineSection {
+  margin-top: 32px;
+  padding-top: 28px;
+}
+
+.workspace .caseTimelineSection > .hint {
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.workspace .caseTimelineCards {
+  display: grid;
+  gap: 16px;
+}
+
+/* 카드 내부 시간·본문·태그 간격은 모두 16px */
+.workspace .caseTimelineCard {
+  display: grid;
+  gap: 16px;
+  padding: 22px 24px;
+  margin: 0;
+  border: 1px solid #dbe4ed;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.workspace .caseTimelineCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.workspace .caseTimelineTime {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.workspace .caseTimelineNumber {
+  color: #9aabba;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.workspace .caseTimelineTime time {
+  color: #4e6c89;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+.workspace .caseTimelineEditButton {
+  padding: 4px 8px;
+  border: 0;
+  background: transparent;
+  color: #7c8fa1;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.workspace .caseTimelineEditButton:hover {
+  background: #eef3f8;
+  color: #2563a8;
+}
+
+.workspace .caseTimelineContent {
+  margin: 0;
+  padding: 0;
+  color: #2c4359;
+  font-size: 15px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* 태그는 본문 아래 */
+.workspace .caseTimelineTagLine {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.workspace .caseTimelineTagLabel {
+  color: #9aa6b2;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.workspace .caseTimelineTag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #edf3fa;
+  color: #54799d;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.workspace .caseTimelineNoTag {
+  color: #a0aab5;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.workspace .caseTimelineAddButton {
+  margin-top: 18px;
+}
+
+.workspace .caseTimelineEditCard {
+  padding: 22px 24px;
+  border: 1px solid #b9cde2;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.workspace .caseTimelineEditCard .timelineEntry {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* ==================================
+   모바일
+================================== */
+
+@media (max-width: 600px) {
+  .workspace .caseReadableTitle h2 {
+    font-size: 23px;
+  }
+
+  .workspace .caseReadableDates {
+    column-gap: 20px;
+    row-gap: 7px;
+  }
+
+  .workspace .caseInfoTable th {
+    width: 125px;
+  }
+
+  .workspace .caseInfoTable th,
+  .workspace .caseInfoTable td {
+    padding: 13px 12px;
+    font-size: 12px;
+  }
+
+  .workspace .caseEvidenceTable th,
+  .workspace .caseEvidenceTable td {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .workspace .caseEvidenceTable th:first-child {
+    width: 85px;
+  }
+
+  .workspace .caseEvidenceTable th:last-child {
+    width: 65px;
+  }
+
+  .workspace .caseTimelineCard,
+  .workspace .caseTimelineEditCard {
+    padding: 18px;
+  }
+
+  .workspace .caseTimelineContent {
+    font-size: 14px;
+  }
+
+  .workspace .caseTimelineTime time {
+    font-size: 12px;
+  }
+}
+
+/* 타임라인을 사건 단서와 같은 제목·구역 스타일로 */
+.workspace .caseReadableSection.caseTimelineSection {
+  margin: 28px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.workspace .caseTimelineSection > .caseReadableSectionHeading h3 {
+  margin: 0;
+  padding: 0;
+  color: #243d55;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.workspace .caseTimelineSection > .hint {
+  margin: 0 0 16px;
+}
+
+.workspace .caseTimelineEditCard .timelineEntry {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* 공개 사례 / 관리자 */
+.hero-search, .hero-admin { background: linear-gradient(120deg, #163f6b, #366b98); color: white; }
+.publicationText { white-space: pre-wrap; overflow-wrap: anywhere; }
+.publicationSettings { border-top: 2px solid var(--line); padding-top: 28px; }
+.publicSearchForm { display: flex; align-items: end; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.publicSearchForm label { flex: 1; margin: 0; }
+.publicSearchForm button { margin-bottom: 0; min-height: 48px; }
+.publicationResults { display: grid; gap: 0; }
+.publicationResult { display: flex; flex-direction: column; gap: 8px; width: 100%; text-align: left; padding: 22px 10px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; font-weight: 400; overflow-wrap: anywhere; }
+.publicationResult strong { font-size: 1.15rem; color: var(--navy); }
+.publicationResult.selected { background: #e9f1fa; box-shadow: inset 3px 0 var(--blue); }
+.publicationExcerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.publicationPager { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 24px 0; }
+.publicCaseDetail { margin-top: 24px; }
+.publicationFacts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.publicationFacts div { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 12px; }
+.publicationFacts dt { font-weight: 700; }
+.publicationFacts dd { margin: 0; overflow-wrap: anywhere; }
+.publicationFilter { max-width: 240px; }
+.publicationAdminGrid { display: grid; grid-template-columns: minmax(240px, 1fr) minmax(0, 2fr); gap: 36px; align-items: start; }
+.publicationAdminGrid > section { min-width: 0; }
+.publicationSource { padding: 20px; background: #edf2f7; border-left: 3px solid #7e9cb6; margin-bottom: 28px; }
+.publicationSource h4 { margin-bottom: 6px; }
+.publicationSource p { margin-top: 0; }
+@media (max-width: 800px) {
+  .publicationAdminGrid { grid-template-columns: 1fr; gap: 24px; }
+  .publicSearchForm { flex-direction: column; align-items: stretch; }
+  .publicationFacts div { grid-template-columns: 90px 1fr; gap: 10px; }
+}
