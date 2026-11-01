@@ -359,44 +359,73 @@ export function PublicCaseSearch() {
   const [query, setQuery] = useState('');
   const [data, setData] = useState(null);
   const [selected, setSelected] = useState(null);
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusy] = useState(true);
   const [error, setError] = useState('');
 
   const requestId = useRef(0);
 
-  useEffect(
-    () => () => {
+  // 페이지에 처음 들어오면 전체 공개 사례를 조회합니다.
+  useEffect(() => {
+    const id = ++requestId.current;
+
+    setBusy(true);
+    setError('');
+
+    api.search('', 0)
+      .then((result) => {
+        if (!Array.isArray(result?.content)) {
+          throw new Error('목록 응답 형식을 확인해주세요.');
+        }
+
+        if (id === requestId.current) {
+          setData(result);
+        }
+      })
+      .catch((err) => {
+        if (id === requestId.current) {
+          setError(err.message || '목록을 불러오지 못했습니다.');
+        }
+      })
+      .finally(() => {
+        if (id === requestId.current) {
+          setBusy(false);
+        }
+      });
+
+    return () => {
       requestId.current += 1;
-    },
-    []
-  );
+    };
+  }, []);
 
   async function search(nextPage = 0, term = query) {
-    if (!term.trim()) {
-      setError('검색어를 입력해주세요.');
-      return;
-    }
-
+    const normalizedQuery = term.trim();
     const id = ++requestId.current;
 
     setBusy(true);
     setError('');
     setSelected(null);
     setData(null);
-    setQuery(term.trim());
+    setQuery(normalizedQuery);
 
     try {
-      const result = await api.search(term.trim(), nextPage);
+      // 빈 검색어는 전체 목록 조회입니다.
+      const result = await api.search(normalizedQuery, nextPage);
 
       if (!Array.isArray(result?.content)) {
-        throw new Error('검색 응답 형식을 확인해주세요.');
+        throw new Error('목록 응답 형식을 확인해주세요.');
       }
 
-      if (id === requestId.current) setData(result);
+      if (id === requestId.current) {
+        setData(result);
+      }
     } catch (err) {
-      if (id === requestId.current) setError(err.message);
+      if (id === requestId.current) {
+        setError(err.message || '목록을 불러오지 못했습니다.');
+      }
     } finally {
-      if (id === requestId.current) setBusy(false);
+      if (id === requestId.current) {
+        setBusy(false);
+      }
     }
   }
 
@@ -409,18 +438,28 @@ export function PublicCaseSearch() {
 
     try {
       const item = await api.detail(id);
-      if (current === requestId.current) setSelected(item);
+
+      if (current === requestId.current) {
+        setSelected(item);
+      }
     } catch (err) {
       if (current === requestId.current) {
         setError(
           err.status === 404
             ? '철회되었거나 공개되지 않은 사례입니다. 다시 검색해주세요.'
-            : err.message
+            : err.message || '사례를 불러오지 못했습니다.'
         );
       }
     } finally {
-      if (current === requestId.current) setBusy(false);
+      if (current === requestId.current) {
+        setBusy(false);
+      }
     }
+  }
+
+  function showAll() {
+    setInput('');
+    search(0, '');
   }
 
   return (
@@ -436,21 +475,33 @@ export function PublicCaseSearch() {
           어떤 사례를 찾고 있나요?
           <input
             id="public-query"
-            required
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="예: 리뷰 출금"
           />
         </label>
 
-        <button className="primary" disabled={busy}>
+        <button
+          type="submit"
+          className="primary"
+          disabled={busy}
+        >
           사례 검색
+        </button>
+
+        <button
+          type="button"
+          disabled={busy}
+          onClick={showAll}
+        >
+          전체 보기
         </button>
       </form>
 
       <p className="hint">
-        관리자가 승인한 공개 사례를 최근 승인 순으로 보여줍니다. 여러
-        단어를 입력하면 모든 단어가 포함된 사례를 찾습니다.
+        관리자가 승인한 공개 사례를 최근 승인 순으로 보여줍니다.
+        검색어를 입력하고 검색하면 해당하는 사례만 표시됩니다.
+        여러 단어를 입력하면 모든 단어가 포함된 사례를 찾습니다.
       </p>
 
       <ErrorMessage message={error} />
@@ -460,15 +511,16 @@ export function PublicCaseSearch() {
       {selected ? (
         <>
           <button onClick={() => setSelected(null)}>
-            ← 검색 결과로 돌아가기
+            ← 목록으로 돌아가기
           </button>
+
           <PublicCase item={selected} />
         </>
       ) : (
         data && (
           <>
             <div className="heading">
-              <h2>검색 결과</h2>
+              <h2>{query ? '검색 결과' : '전체 공개 사례'}</h2>
               <span>총 {data.totalElements}건</span>
             </div>
 
@@ -476,6 +528,7 @@ export function PublicCaseSearch() {
               <div className="publicationResults">
                 {data.content.map((item) => (
                   <button
+                    type="button"
                     className="publicationResult"
                     disabled={busy}
                     key={item.id}
@@ -485,29 +538,32 @@ export function PublicCaseSearch() {
                       {item.channel || '접근 경로 정보 없음'} ·{' '}
                       {date(item.publishedAt)}
                     </span>
+
                     <strong>{item.title}</strong>
+
                     <span className="publicationExcerpt">
                       {item.summary}
                     </span>
+
                     <span>자세히 보기 →</span>
                   </button>
                 ))}
               </div>
             ) : (
               <div className="empty">
-                검색 결과가 없습니다. 다른 단어로 검색해보세요.
+                {query
+                  ? '검색 결과가 없습니다. 다른 단어로 검색해보세요.'
+                  : '아직 공개된 사례가 없습니다.'}
               </div>
             )}
 
-            <Pager data={data} busy={busy} onChange={search} />
+            <Pager
+              data={data}
+              busy={busy}
+              onChange={(nextPage) => search(nextPage, query)}
+            />
           </>
         )
-      )}
-
-      {!data && !selected && !busy && !error && (
-        <div className="empty">
-          검색어를 입력하면 공개 사례를 찾아볼 수 있어요.
-        </div>
       )}
     </main>
   );

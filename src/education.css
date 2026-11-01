@@ -203,3 +203,1657 @@
     display: none;
   }
 }
+
+/* 상단 소리 설정 */
+.eduTopRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eduPage .eduSoundToggle {
+  padding: 6px 10px;
+  font-size: 12px;
+  background: transparent;
+  white-space: nowrap;
+}
+
+/* 체험 화면 간격 */
+.eduPage > .eduStage {
+  margin-top: 28px;
+}
+
+/* 사례 목록 */
+.eduScenarioList {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.eduScenarioList article {
+  border-top: 1px solid #dce3ed;
+  padding: 24px 0;
+}
+
+.eduScenarioList h3 {
+  margin-top: 10px;
+}
+
+.eduScenarioList article > p:not(.eduEyebrow) {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+/* 전화 수신 */
+.eduRingVisual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 160px;
+  margin: 16px auto;
+}
+
+.eduRingingIcon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e3edff;
+  color: #1d4ed8;
+  font-size: 42px;
+  animation: eduPhoneShake 1.3s ease-in-out infinite;
+}
+
+.eduRingWave {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #a7c3f4;
+  border-radius: 50%;
+  animation: eduRingExpand 2.4s ease-out infinite;
+}
+
+.eduRingWaveDelayed {
+  animation-delay: 1.2s;
+}
+
+.eduIncomingStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.eduIncomingStatus > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+/* 대화 진행 */
+.eduConversationLive {
+  min-height: 280px;
+  max-height: 520px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.eduMessageEnter {
+  flex-shrink: 0;
+  animation: eduMessageAppear 0.25s ease-out both;
+}
+
+.eduDialogueControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eduDialogueControl > span {
+  color: #738096;
+  font-size: 13px;
+}
+
+.eduDialogueControl > button {
+  flex-shrink: 0;
+}
+
+/* 조회 사이트·설치·은행 공통 */
+.eduMockSite,
+.eduInstall,
+.eduBank {
+  max-width: 640px;
+  margin: 28px auto;
+  border: 1px solid #ccd7e6;
+  background: #fff;
+}
+
+/* 가상 조회 사이트 */
+.eduMockAddress {
+  padding: 12px 20px;
+  background: #edf1f7;
+  color: #52617a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.eduMockSiteBody {
+  padding: 28px;
+}
+
+.eduMockSiteBody h3 {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #264c82;
+}
+
+.eduMockSite dl > div,
+.eduInstall dl > div,
+.eduTransferFields > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.eduMockSite dt,
+.eduInstall dt,
+.eduTransferFields dt {
+  color: #64748b;
+}
+
+.eduMockSite dd,
+.eduInstall dd,
+.eduTransferFields dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.eduSiteAlert {
+  margin-top: 24px;
+  padding: 18px;
+  border-left: 3px solid #bf622d;
+  background: #fff4ed;
+  line-height: 1.8;
+}
+
+.eduSiteAlert h4 {
+  margin: 0;
+}
+
+/* 모의 설치 */
+.eduInstall {
+  padding: 28px;
+}
+
+.eduAppIcon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  background: #edf3fc;
+  color: #1d4ed8;
+  font-size: 32px;
+}
+
+.eduInstall h3 {
+  margin-top: 18px;
+}
+
+/* 원격 조작 연출 안내 */
+.eduSimulationNotice {
+  margin: 0;
+  padding: 14px 24px;
+  background: #edf3ff;
+  color: #264f89;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.eduAssumption {
+  margin: 20px 28px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 모의 은행 */
+.eduBank {
+  min-height: 330px;
+  padding: 24px;
+}
+
+.eduBankBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #1d4ed8;
+  font-weight: 700;
+}
+
+.eduBankBar > span:last-child {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.eduBank h3 {
+  margin: 12px 0;
+}
+
+.eduBank [role='status'] > p:last-child {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.eduBalanceLabel {
+  margin-top: 24px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.eduBankBalance {
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+.eduAutoField {
+  outline: 4px solid #eaf1ff;
+  background: #eaf1ff;
+}
+
+.eduTransferComplete {
+  margin-top: 20px;
+  padding: 16px;
+  background: #fff1ee;
+  color: #9d3927;
+  font-weight: 700;
+}
+
+.eduRemoteControls {
+  padding: 0 28px 28px;
+}
+
+.eduPage button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* 애니메이션 */
+@keyframes eduPhoneShake {
+  0%,
+  40%,
+  100% {
+    transform: rotate(0);
+  }
+
+  5%,
+  15%,
+  25% {
+    transform: rotate(-12deg);
+  }
+
+  10%,
+  20%,
+  30% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes eduRingExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes eduMessageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .eduTopRight > span {
+    display: none;
+  }
+
+  .eduDialogueControl {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .eduMockSite,
+  .eduInstall,
+  .eduBank {
+    margin: 20px 14px;
+  }
+
+  .eduMockSiteBody,
+  .eduInstall,
+  .eduBank {
+    padding: 18px;
+  }
+
+  .eduMockSite dl > div,
+  .eduInstall dl > div,
+  .eduTransferFields > div {
+    font-size: 13px;
+  }
+
+  .eduConversationLive {
+    min-height: 240px;
+    max-height: 460px;
+  }
+
+  .eduRemoteControls {
+    padding: 0 16px 24px;
+  }
+
+  .eduBankBalance {
+    font-size: 27px;
+  }
+}
+
+/* 움직임 최소화 */
+@media (prefers-reduced-motion: reduce) {
+  .eduRingingIcon,
+  .eduRingWave,
+  .eduIncomingStatus > span,
+  .eduMessageEnter {
+    animation: none;
+  }
+
+  .eduRingWave {
+    display: none;
+  }
+}
+
+/* 교통위반 문자 */
+.trafficSms {
+  max-width: 580px;
+  margin: 28px auto;
+  padding: 24px;
+}
+
+.trafficSmsHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.trafficSmsHeader > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.trafficSmsHeader strong {
+  font-size: 16px;
+}
+
+.trafficSmsHeader span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.trafficSmsIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: #e8eef9;
+  color: #345b96;
+  font-weight: 700;
+}
+
+.trafficSmsBubble {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid #dce3ed;
+  background: #f3f6fa;
+  line-height: 1.85;
+}
+
+.trafficSmsBubble p {
+  margin: 0 0 14px;
+}
+
+.eduPage .trafficMockLink {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1d4ed8;
+  text-align: left;
+  text-decoration: underline;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+/* 가상 번호 입력 */
+.trafficPhoneLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trafficPhoneLabel input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  background: #f8fafc;
+  color: #17243c;
+  font: inherit;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+}
+
+.trafficBodyText {
+  color: #52617a;
+  line-height: 1.9;
+}
+
+.trafficExplanationBox {
+  padding: 20px;
+  background: #f2f5fb;
+  color: #52617a;
+  line-height: 1.9;
+}
+
+.trafficExplanationBox p:first-child {
+  margin-top: 0;
+}
+
+.trafficExplanationBox p:last-child {
+  margin-bottom: 0;
+}
+
+/* 개인정보 탈취 연출 */
+.trafficLeakBody {
+  padding: 28px;
+}
+
+.trafficLeakHeading {
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+
+.trafficLeakHeading h3 {
+  margin-top: 12px;
+}
+
+.trafficLeakHeading > p:last-child {
+  color: #64748b;
+  line-height: 1.9;
+}
+
+.trafficInstalled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 280px;
+  background: #f5f8fc;
+  text-align: center;
+}
+
+.trafficInstalled > span {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e3edff;
+  color: #1d4ed8;
+  font-size: 32px;
+}
+
+.trafficInstalled p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* 가상 앨범 */
+.trafficAlbum {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 22px;
+  border: 1px solid #dce3ed;
+  background: #fff;
+}
+
+.trafficAlbumHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.trafficAlbumHeader strong {
+  font-size: 20px;
+}
+
+.trafficAlbumHeader > span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.trafficPhotoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.trafficPhoto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  min-height: 180px;
+  padding: 14px;
+  border: 1px solid #dce3ed;
+  background: #f7f9fc;
+}
+
+.trafficPhoto > span:not(.trafficPhotoBadge) {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.trafficPhotoSymbol {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  min-height: 110px;
+  background: #e8eff7;
+  color: #7890ac !important;
+  font-size: 40px !important;
+}
+
+.trafficPrivatePhoto.isTargeted {
+  border-color: #c86149;
+  background: #fff4f0;
+  box-shadow: 0 0 0 1px #c86149;
+}
+
+.trafficPhotoBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 5px 8px;
+  background: #a74532;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* 개인정보가 없는 신분증 견본 */
+.trafficFakeId {
+  min-height: 110px;
+  padding: 12px;
+  border: 1px solid #c7d5e6;
+  background: #eef3fa;
+}
+
+.trafficFakeIdTop {
+  margin-bottom: 14px;
+  color: #4b6280;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.trafficFakeIdBody {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trafficPortrait {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 52px;
+  background: #cad7e7;
+  color: #526b8b;
+  font-size: 11px;
+}
+
+.trafficFakeIdBody > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.trafficFakeIdBody strong {
+  font-size: 12px;
+}
+
+.trafficFakeIdBody span {
+  color: #6b7f97;
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+
+.trafficFakeDocument {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 110px;
+  padding: 12px;
+  border: 1px solid #d8dce3;
+  background: #fff;
+}
+
+.trafficFakeDocument strong {
+  font-size: 11px;
+}
+
+.trafficFakeDocument > span {
+  color: #7b8492;
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+
+.trafficFakeDocument small {
+  color: #a0a9b6;
+  font-size: 9px;
+}
+
+/* 전송 결과 */
+.trafficLeakAlert {
+  margin-top: 20px;
+  padding: 18px;
+  border-left: 3px solid #b34d36;
+  background: #fff0eb;
+  color: #963d2b;
+  line-height: 1.8;
+}
+
+.trafficLeakAlert p {
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+/* 시간 경과 */
+.trafficLater {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 280px;
+  padding: 28px;
+  background: #f2f5fa;
+  text-align: center;
+}
+
+.trafficLater > span {
+  color: #52617a;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.trafficLater p,
+.trafficLater small {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.9;
+}
+
+/* 후속 금융 피해 알림 */
+.trafficBankNotice {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid #dce3ed;
+  background: #fff;
+}
+
+.trafficBankName {
+  margin-top: 0;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #1d4ed8;
+  color: #264f89;
+  font-weight: 700;
+}
+
+.trafficBankNotice > strong {
+  display: block;
+  margin: 16px 0 26px;
+  color: #17243c;
+  font-size: 34px;
+  letter-spacing: -0.04em;
+}
+
+.trafficBankDetail {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.trafficBankDetail > span:first-child {
+  color: #64748b;
+}
+
+.trafficUnknownTransaction {
+  margin-bottom: 0;
+  padding: 16px;
+  background: #fff1ed;
+  color: #a04430;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .trafficSms {
+    margin: 20px 0;
+    padding: 20px;
+  }
+
+  .trafficSmsBubble {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .trafficLeakBody {
+    padding: 20px;
+  }
+
+  .trafficAlbum {
+    padding: 14px;
+  }
+
+  .trafficPhotoGrid {
+    gap: 10px;
+  }
+
+  .trafficPhoto {
+    min-height: 160px;
+    padding: 10px;
+  }
+
+  .trafficFakeId,
+  .trafficFakeDocument {
+    padding: 8px;
+  }
+
+  .trafficFakeIdBody {
+    gap: 6px;
+  }
+
+  .trafficPortrait {
+    width: 28px;
+    height: 42px;
+  }
+
+  .trafficBankNotice {
+    padding: 20px;
+  }
+
+  .trafficBankNotice > strong {
+    font-size: 29px;
+  }
+}
+
+/* 해외 결제 문자 */
+.cardSms {
+  max-width: 580px;
+  margin: 28px auto;
+  padding: 24px;
+}
+
+.cardSmsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cardSmsHeader strong {
+  font-size: 17px;
+}
+
+.cardSmsHeader span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.cardSmsBubble {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid #dce3ed;
+  background: #f3f6fa;
+  line-height: 1.9;
+}
+
+.cardSmsBubble p {
+  margin: 0 0 16px;
+}
+
+.cardPaymentAmount {
+  display: block;
+  margin: 18px 0;
+  color: #17243c;
+  font-size: 27px;
+  letter-spacing: -0.03em;
+}
+
+.eduPage .cardNumberLink {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1d4ed8;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+/* 발신 전화 화면 */
+.cardOutgoing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 24px;
+  background: #f3f6fc;
+  text-align: center;
+}
+
+.cardOutgoingCaption {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.cardPhoneIcon {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  margin: 28px 0 20px;
+  border-radius: 50%;
+  background: #e3edff;
+  color: #1d4ed8;
+  font-size: 40px;
+}
+
+.cardOutgoingNumber {
+  margin: 0 0 12px;
+  color: #17243c;
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cardOutgoing > p:not(.cardOutgoingNumber) {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+/* 모의 은행 */
+.cardBank {
+  max-width: 620px;
+  margin: 28px auto;
+  padding: 28px;
+  border: 1px solid #ccd7e6;
+  background: #fff;
+}
+
+.cardBankHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #1d4ed8;
+  color: #264f89;
+}
+
+.cardBankHeader > span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.cardBalanceLabel {
+  margin: 26px 0 10px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.cardBalance {
+  display: block;
+  margin-bottom: 28px;
+  color: #17243c;
+  font-size: 31px;
+  letter-spacing: -0.04em;
+}
+
+.cardTransferDetails {
+  margin: 20px 0;
+}
+
+.cardTransferDetails > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cardTransferDetails dt {
+  color: #64748b;
+}
+
+.cardTransferDetails dd {
+  margin: 0;
+  color: #253650;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.cardTransferDetails .cardTransferAmount {
+  color: #17243c;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.cardClaim {
+  margin-top: 24px;
+  padding: 16px;
+  border-left: 3px solid #91a9cd;
+  background: #f1f5fc;
+  color: #52617a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* 송금 결과 */
+.cardTransferResultBody {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 32px 28px;
+}
+
+.cardResultIcon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: #e3edff;
+  color: #1d4ed8;
+  font-size: 31px;
+}
+
+.cardTransferResultBody h3 {
+  margin: 12px 0;
+  color: #17243c;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.cardTransferResultBody > p {
+  color: #64748b;
+  line-height: 1.9;
+}
+
+.cardResultActions {
+  padding: 0 28px 28px;
+}
+
+@media (max-width: 600px) {
+  .cardSms {
+    margin: 20px 0;
+    padding: 20px;
+  }
+
+  .cardSmsBubble {
+    padding: 18px;
+    font-size: 14px;
+  }
+
+  .cardOutgoing {
+    padding: 28px 18px;
+  }
+
+  .cardOutgoingNumber {
+    font-size: 25px;
+  }
+
+  .cardBank {
+    margin: 20px 14px;
+    padding: 18px;
+  }
+
+  .cardBalance {
+    font-size: 27px;
+  }
+
+  .cardTransferDetails > div {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .cardTransferResultBody {
+    padding: 24px 20px;
+  }
+
+  .cardTransferResultBody h3 {
+    font-size: 21px;
+  }
+
+  .cardResultActions {
+    padding: 0 20px 24px;
+  }
+}
+
+/* 팀미션 공통 화면 */
+.teamAd,
+.teamTask,
+.teamReward,
+.teamPayment {
+  max-width: 640px;
+  margin: 28px auto;
+  padding: 28px;
+  border: 1px solid #dce3ed;
+  background: #fff;
+}
+
+/* 부업 광고 */
+.teamAd {
+  background: #f0f5ff;
+  border-top: 4px solid #345f9f;
+}
+
+.teamAdLabel {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.teamAd h3 {
+  margin: 24px 0;
+  color: #17243c;
+  font-size: 30px;
+  line-height: 1.45;
+  letter-spacing: -0.04em;
+}
+
+.teamAd > p {
+  color: #52617a;
+  line-height: 1.9;
+}
+
+.teamAdTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.teamAdTags span {
+  padding: 8px 12px;
+  border: 1px solid #ccd9ec;
+  background: #fff;
+  color: #52617a;
+  font-size: 12px;
+}
+
+/* 첫 작업 */
+.teamProduct {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.teamProductImage {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 110px;
+  height: 130px;
+  background: #e8edf5;
+  color: #8798ad;
+  font-size: 24px;
+}
+
+.teamProduct h3 {
+  margin: 10px 0;
+}
+
+.teamProduct p {
+  color: #64748b;
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+.teamTaskNotice {
+  margin-top: 24px;
+  padding: 18px;
+  background: #f3f6fb;
+  color: #52617a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* 소액 보상 */
+.teamRewardIcon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 24px 0;
+  border-radius: 50%;
+  background: #e4edff;
+  color: #1d4ed8;
+  font-size: 30px;
+}
+
+.teamReward h3 {
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.teamReward > p {
+  color: #64748b;
+}
+
+/* 입금 화면 */
+.teamPaymentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #1d4ed8;
+}
+
+.teamPaymentHeader strong {
+  color: #264f89;
+}
+
+.teamPaymentHeader span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.teamPaymentPurpose {
+  margin: 26px 0 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.teamPaymentAmount {
+  display: block;
+  margin-bottom: 24px;
+  color: #17243c;
+  font-size: 34px;
+  letter-spacing: -0.04em;
+}
+
+.teamMoneyTable > div,
+.teamLossSummary dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.teamMoneyTable dt,
+.teamLossSummary dt {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.teamMoneyTable dd,
+.teamLossSummary dd {
+  margin: 0;
+  text-align: right;
+  color: #253650;
+  font-size: 14px;
+}
+
+/* 연락 두절 */
+.teamGoneBody {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.teamGoneBody [role='status'] {
+  min-height: 110px;
+}
+
+.teamGoneBody [role='status'] h3 {
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.teamGoneBody [role='status'] p {
+  color: #64748b;
+  line-height: 1.9;
+}
+
+.teamStatusList {
+  margin-top: 24px;
+  border-top: 1px solid #dce3ed;
+}
+
+.teamStatusList > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #dce3ed;
+  font-size: 14px;
+}
+
+.teamStatusList span {
+  color: #64748b;
+}
+
+.teamStatusList strong {
+  color: #9e4936;
+}
+
+.teamLossSummary {
+  margin-top: 28px;
+  padding: 20px;
+  background: #f6f8fc;
+}
+
+.teamLossSummary h4 {
+  margin: 0 0 12px;
+}
+
+.teamLossSummary .teamNetLoss dt,
+.teamLossSummary .teamNetLoss dd {
+  color: #a24430;
+  font-weight: 700;
+}
+
+.teamSceneActions {
+  padding: 0 28px 28px;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .teamAd,
+  .teamTask,
+  .teamReward,
+  .teamPayment {
+    margin: 20px 14px;
+    padding: 20px;
+  }
+
+  .teamAd h3 {
+    font-size: 25px;
+  }
+
+  .teamProduct {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .teamProductImage {
+    width: 70px;
+    height: 100px;
+    font-size: 18px;
+  }
+
+  .teamProduct h3 {
+    font-size: 18px;
+  }
+
+  .teamPaymentHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .teamPaymentAmount {
+    font-size: 29px;
+  }
+
+  .teamMoneyTable dt,
+  .teamMoneyTable dd {
+    font-size: 12px;
+  }
+
+  .teamGoneBody {
+    padding: 20px;
+  }
+
+  .teamSceneActions {
+    padding: 0 20px 24px;
+  }
+}
+
+/* 로맨스스캠 공통 */
+.romancePanel,
+.romanceExchange {
+  max-width: 640px;
+  margin: 28px auto;
+  padding: 28px;
+  border: 1px solid #dce3ed;
+  background: #fff;
+}
+
+.romanceBodyText {
+  color: #64748b;
+  line-height: 1.9;
+}
+
+/* 프로필 */
+.romanceProfileRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.romanceAvatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e5edf9;
+  color: #44648f;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.romanceProfileRow h3 {
+  margin: 0 0 8px;
+}
+
+.romanceProfileRow p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.romanceMessage {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid #dce3ed;
+  border-left: 3px solid #93b4ee;
+  background: #f4f7fc;
+  color: #334155;
+  line-height: 1.9;
+}
+
+.romanceMessage.isMine {
+  margin-left: 32px;
+  background: #eaf1ff;
+  border-color: #cdddff;
+}
+
+/* 시간 경과 */
+.romanceTime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 330px;
+  padding: 40px 28px;
+  background: #f2f6fc;
+  text-align: center;
+}
+
+.romanceTime > strong {
+  margin: 18px 0;
+  color: #17243c;
+  font-size: 40px;
+  letter-spacing: -0.04em;
+}
+
+.romanceTime > p:not(.eduEyebrow) {
+  max-width: 500px;
+  color: #64748b;
+  line-height: 1.9;
+}
+
+.romanceMemory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.romanceMemory span {
+  padding: 8px 12px;
+  border: 1px solid #d5dfed;
+  background: #fff;
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* 거래소·입금 */
+.romancePanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #1d4ed8;
+}
+
+.romancePanelHeader strong {
+  color: #264f89;
+}
+
+.romancePanelHeader > span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.romancePurpose {
+  margin: 26px 0 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.romanceAmount {
+  display: block;
+  margin-bottom: 24px;
+  color: #17243c;
+  font-size: 34px;
+  letter-spacing: -0.04em;
+}
+
+.romanceTable > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.romanceTable dt {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.romanceTable dd {
+  margin: 0;
+  color: #253650;
+  text-align: right;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* 소액 출금 */
+.romanceReceiptIcon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 24px 0;
+  border-radius: 50%;
+  background: #e3edff;
+  color: #1d4ed8;
+  font-size: 30px;
+}
+
+/* 출금 차단 */
+.romanceBlockedNotice {
+  margin: 24px 0;
+  padding: 20px;
+  border-left: 3px solid #b26435;
+  background: #fff4eb;
+  color: #90512d;
+  line-height: 1.9;
+}
+
+.romanceBlockedNotice p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+/* 연락 두절 */
+.romanceFailed {
+  margin: 12px 0 24px;
+  color: #a34e3a;
+  text-align: right;
+  font-size: 12px;
+}
+
+.romanceStatus {
+  margin-top: 24px;
+  border-top: 1px solid #dce3ed;
+}
+
+.romanceStatus > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 17px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.romanceStatus span {
+  color: #64748b;
+}
+
+.romanceStatus strong {
+  color: #a34e3a;
+}
+
+.romanceLoss {
+  margin-top: 24px;
+  padding: 20px;
+  background: #f6f8fc;
+}
+
+.romanceLoss h4 {
+  margin: 0 0 12px;
+}
+
+.romanceLoss .romanceTable > div:last-child dt,
+.romanceLoss .romanceTable > div:last-child dd {
+  color: #a24430;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .romancePanel,
+  .romanceExchange {
+    margin: 20px 14px;
+    padding: 20px;
+  }
+
+  .romanceProfileRow {
+    gap: 14px;
+  }
+
+  .romanceAvatar {
+    width: 58px;
+    height: 58px;
+    font-size: 25px;
+  }
+
+  .romanceTime {
+    min-height: 280px;
+    padding: 32px 20px;
+  }
+
+  .romanceTime > strong {
+    font-size: 34px;
+  }
+
+  .romancePanelHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .romanceAmount {
+    font-size: 29px;
+  }
+
+  .romanceTable dt,
+  .romanceTable dd {
+    font-size: 12px;
+  }
+
+  .romanceMessage {
+    padding: 16px;
+    font-size: 14px;
+  }
+}

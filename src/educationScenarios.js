@@ -1,6 +1,10 @@
 // 선택지 형식:
 // [버튼 문구, 다음 장면 ID, 복기에 표시할 행동, 행동 해설]
-
+import { customsScenario } from './customsScenario';
+import { trafficScenario } from './trafficScenario';
+import { cardScenario } from './cardScenario';
+import { teamMissionScenario } from './teamMissionScenario';
+import { romanceScenario } from './romanceScenario';
 const communityCenterScenes = {
   firstCall: {
     kind: 'call',
@@ -301,10 +305,18 @@ const communityCenterEndings = {
 export const educationScenarios = [
   {
     id: 'community-center',
+
     title: '행정복지센터에서 걸려 온 전화',
+
+    category: '전화 · 현금 전달',
+
+    description:
+      '누군가 내 등본을 발급받으러 왔다는 연락 뒤, 또 다른 전화가 이어집니다.',
+
     startScene: 'firstCall',
 
     scenes: communityCenterScenes,
+
     endings: communityCenterEndings,
 
     lessons: [
@@ -317,4 +329,11 @@ export const educationScenarios = [
       '이 대화에서 ‘현금 검사 후 반환’은 사칭자가 현금을 건네받기 위해 내세운 거짓 명분입니다. 앞선 요구에 따랐더라도 이후 요구를 중단하고 다시 판단할 수 있습니다.',
     ],
   },
+
+  customsScenario,
+    trafficScenario,
+cardScenario,
+  teamMissionScenario,
+  romanceScenario,
+
 ];
