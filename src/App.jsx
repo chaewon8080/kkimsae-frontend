@@ -4,7 +4,7 @@ import { getAuthVersion, getTokens } from './api/client';
 import './styles.css';
 import EducationPage from './EducationPage';
 import { PublicationSettings, PublicCaseSearch, AdminPublications } from './PublicationPages';
-
+import IncidentImages from './IncidentImages';
 /* 공통 설정 */
 
 const pages = [
@@ -1831,15 +1831,13 @@ export default function App() {
                     />
                   </IncidentDetail>
 
-                  <section className="section">
-                    <h3>증거 파일</h3>
-                    <p className="hint">
-                      업로드·다운로드 API 구현 후 연결할 예정입니다.
-                    </p>
-                    <button disabled>
-                      파일 첨부 준비 중
-                    </button>
-                  </section>
+                <IncidentImages
+  key={`${user.id}:${savedIncident.id}`}
+  incidentId={savedIncident.id}
+    initialImages={savedIncident.images || []}
+
+  disabled={busy}
+/>
 
                   <PublicationSettings
                     key={`${user?.id}:${savedIncident.id}`}
