@@ -129,12 +129,15 @@ function sortEvents(events = []) {
 function Logo() {
   return (
     <div className="logo" aria-label="낌새">
-      <span className="logoMark">✓</span>
+      <img
+        src="/images/kkimsae-logo.png"
+        alt=""
+        className="logoImage"
+      />
       <span>낌새</span>
     </div>
   );
 }
-
 function Hero({ page }) {
   const data = heroData[page];
 
@@ -143,7 +146,6 @@ function Hero({ page }) {
   return (
     <section className={`hero hero-${page}`}>
       <div className="heroInner">
-        <p className="eyebrow">{data[0]}</p>
         <h1>{data[1]}</h1>
         <p>{data[2]}</p>
       </div>
@@ -253,7 +255,6 @@ function Account({
           </>
         ) : (
           <>
-            <p className="eyebrow">WELCOME TO KKIMSAE</p>
             <h1>{signup ? '회원가입' : '로그인'}</h1>
             <p>
               {signup
@@ -1612,7 +1613,6 @@ export default function App() {
 
           <div className="heading">
             <div>
-              <p className="eyebrow">MY RECORDS</p>
               <h2>이어서 정리할 사건</h2>
             </div>
             <button onClick={() => navigate('incidents')}>
@@ -1662,7 +1662,6 @@ export default function App() {
 
           <section className="homeGrid">
             <div>
-              <p className="eyebrow">01 · 기록과 비교</p>
               <h2>내 사건을 차근차근</h2>
               <p>
                 전화번호·URL·계좌번호를 모으고 사건 진행을
@@ -1677,7 +1676,6 @@ export default function App() {
             </div>
 
             <div>
-              <p className="eyebrow">02 · 예방과 연습</p>
               <h2>대화 속 선택으로 대처 연습</h2>
               <p>공식 자료 기반 대화 교육을 준비하고 있어요.</p>
               <button onClick={() => navigate('education')}>

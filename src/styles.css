@@ -227,6 +227,7 @@ summary:focus-visible {
   background-image: url('/images/hero-analysis.jpg');
 }
 
+
 .heroInner {
   position: relative;
   width: 100%;
@@ -1942,7 +1943,19 @@ footer {
   border: 0;
 }
 /* 공개 사례 / 관리자 */
-.hero-search, .hero-admin { background: linear-gradient(120deg, #163f6b, #366b98); color: white; }
+.hero-search {
+  background-image: url('/images/hero-search.jpg');
+}
+
+.hero-education {
+  background-image: url('/images/hero-education.png');
+}
+.hero-admin {
+  background: linear-gradient(120deg, #163f6b, #366b98);
+  color: white;
+}
+
+
 .publicationText { white-space: pre-wrap; overflow-wrap: anywhere; }
 .publicationSettings { border-top: 2px solid var(--line); padding-top: 28px; }
 .publicSearchForm { display: flex; align-items: end; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
@@ -1969,4 +1982,110 @@ footer {
   .publicationAdminGrid { grid-template-columns: 1fr; gap: 24px; }
   .publicSearchForm { flex-direction: column; align-items: stretch; }
   .publicationFacts div { grid-template-columns: 90px 1fr; gap: 10px; }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoImage {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-1Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-3Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: 'Paperlogy', sans-serif;
+}
+
+body {
+  font-family: 'Paperlogy', sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.hero {
+  height: clamp(220px, 28vw, 480px);
+  background-size: cover;
+  background-position: center;
 }

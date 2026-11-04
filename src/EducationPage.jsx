@@ -635,9 +635,7 @@ export default function EducationPage() {
           </div>
 
           <div className="eduMockSiteBody">
-            <p className="eduEyebrow">
-              물품 확인 서비스
-            </p>
+            
 
             <h3>입국 물품 사건 조회</h3>
 
@@ -747,9 +745,7 @@ export default function EducationPage() {
 
       {!scenario ? (
         <section className="eduIntro">
-          <p className="eduEyebrow">
-            대화로 연습하는 대응
-          </p>
+       
 
           <h2
             tabIndex={-1}
@@ -765,17 +761,9 @@ export default function EducationPage() {
 
           <div className="eduScenarioList">
             {educationScenarios.map(
-              (item, index) => (
+              (item) => (
                 <article key={item.id}>
-                  <p className="eduEyebrow">
-                    {String(index + 1).padStart(
-                      2,
-                      '0'
-                    )}
-                    {' · '}
-                    {item.category ||
-                      '대화 상황 체험'}
-                  </p>
+                  
 
                   <h3>{item.title}</h3>
 
@@ -799,10 +787,7 @@ export default function EducationPage() {
         </section>
       ) : current === 'intro' ? (
         <section className="eduIntro">
-          <p className="eduEyebrow">
-            {scenario.category ||
-              '대화 상황 체험'}
-          </p>
+         
 
           <h2
             tabIndex={-1}
@@ -850,9 +835,7 @@ export default function EducationPage() {
         </section>
       ) : ending ? (
         <section className="eduResult">
-          <p className="eduEyebrow">
-            체험 완료 · 내 선택 복기
-          </p>
+         
 
           <h2
             tabIndex={-1}

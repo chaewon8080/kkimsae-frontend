@@ -330,7 +330,6 @@ export function PublicationSettings({ incidentId, disabled }) {
 function PublicCase({ item }) {
   return (
     <article className="caseReadable publicCaseDetail">
-      <p className="eyebrow">공개 사례</p>
       <h2>{item.title}</h2>
 
       <p className="hint">공개일 {date(item.publishedAt)}</p>
