@@ -2089,3 +2089,1305 @@ select {
   background-size: cover;
   background-position: center;
 }
+
+/* 홈 */
+.landingHome {
+  max-width: 1240px;
+  padding: 0 30px 90px;
+  color: #142b48;
+}
+
+.landingHome button {
+  min-height: 44px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.landingHome button:active {
+  transform: translateY(1px);
+}
+
+.landingHome h2 {
+  margin: 0;
+  font-size: clamp(30px, 3.3vw, 48px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.055em;
+  word-break: keep-all;
+}
+
+.landingHome p {
+  font-weight: 400;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.landingHome .primary {
+  padding: 12px 22px;
+  background: #2867aa;
+  border-color: #2867aa;
+  color: white;
+}
+
+.landingHome .primary:hover {
+  background: #20558e;
+  border-color: #20558e;
+}
+
+.landingHome .landingText {
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: #2867aa;
+  text-align: left;
+}
+
+.landingHome .landingText:hover {
+  background: transparent;
+  color: #174474;
+}
+
+/* 배너 아래 소개 */
+.landingStart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 78px 0;
+}
+
+.landingStart p {
+  margin: 0 0 24px;
+  color: #596b80;
+  font-size: 17px;
+}
+
+.landingStart .actions {
+  gap: 24px;
+  margin: 0;
+}
+
+/* 최근 사건 */
+.landingRecent {
+  padding: 30px 32px 18px;
+  border: 1px solid #e0e7ee;
+  border-radius: 8px;
+  background: white;
+}
+
+.landingRecent .heading {
+  margin-bottom: 8px;
+}
+
+.landingRecent .heading h2 {
+  font-size: 22px;
+  letter-spacing: -0.035em;
+}
+
+.landingRecent .listRow {
+  padding: 21px 4px;
+  background: transparent;
+}
+
+.landingRecent .listRow:last-child {
+  border-bottom: 0;
+}
+
+.landingRecent .listRow:hover {
+  background: #f6f9fc;
+}
+
+.landingRecent .listRow strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.landingRecent .listRow small {
+  font-weight: 400;
+}
+
+.landingRecent .listRow > span:last-child {
+  color: #2867aa;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* 사건 기록 소개 */
+.landingFeature {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 90px;
+  padding: 110px 0;
+}
+
+.landingFeatureCopy p {
+  margin: 26px 0 18px;
+  color: #596b80;
+  font-size: 17px;
+}
+
+/* 타임라인 예시 */
+.landingTimeline {
+  padding: 32px 36px;
+  border: 1px solid #e0e7ee;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 22px 60px -36px #315b8b66;
+}
+
+.landingDemoTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e9edf3;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.landingDemoTitle span,
+.landingDemoLabel {
+  color: #718297;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.landingTimeline ol {
+  margin: 28px 0 0;
+  padding: 0 0 0 14px;
+  list-style: none;
+}
+
+.landingTimeline li {
+  position: relative;
+  padding: 0 0 28px 26px;
+  border-left: 1px solid #d4e1ef;
+}
+
+.landingTimeline li:last-child {
+  padding-bottom: 0;
+  border-color: transparent;
+}
+
+.landingTimeline li::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2867aa;
+  box-shadow: 0 0 0 5px #edf4fb;
+}
+
+.landingTimeline li > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #2867aa;
+  font-size: 12px;
+}
+
+.landingTimeline strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.landingTimeline p {
+  margin: 5px 0 0;
+  color: #7a899b;
+  font-size: 13px;
+}
+
+/* 사례 검색 소개 */
+.landingSearch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eaf2fa;
+}
+
+.landingSearch > div {
+  padding: 48px 40px;
+}
+
+.landingSearch h2 {
+  font-size: clamp(28px, 2.7vw, 38px);
+}
+
+.landingSearch p {
+  margin: 22px 0 26px;
+  color: #596b80;
+  font-size: 15px;
+}
+
+.landingSearch img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  object-position: 75% center;
+}
+
+/* 대화 교육 소개 */
+.landingEducation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  margin-top: 100px;
+  padding: 60px 48px;
+  border-radius: 8px;
+  background: #0c2343;
+  color: white;
+}
+
+.landingEducation h2 {
+  color: white;
+  font-size: clamp(30px, 3vw, 42px);
+}
+
+.landingEducation > div > p {
+  margin: 24px 0;
+  color: #b7cbe0;
+  font-size: 15px;
+}
+
+.landingEducation button {
+  padding: 12px 20px;
+  border-color: white;
+  background: white;
+  color: #163e6b;
+}
+
+.landingEducation button:hover {
+  background: #eaf2fa;
+}
+
+/* 대화 예시 */
+.landingConversation {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 0;
+}
+
+.landingConversation .landingDemoLabel {
+  color: #a1b9d2;
+}
+
+.landingConversation .landingBubble {
+  align-self: flex-start;
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 14px 14px 14px 3px;
+  background: white;
+  color: #243d58;
+  font-size: 14px;
+}
+
+.landingConversation .landingReply {
+  align-self: flex-end;
+  margin: 0 0 0 24px;
+  padding: 16px 20px;
+  border-radius: 14px 14px 3px 14px;
+  background: #3278be;
+  color: white;
+  font-size: 14px;
+}
+
+.landingFeedback {
+  padding-top: 20px;
+  border-top: 1px solid #ffffff20;
+  color: #aec7e0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 작은 화면 */
+@media (max-width: 800px) {
+  .landingHome {
+    padding: 0 22px 60px;
+  }
+
+  .landingStart,
+  .landingFeature,
+  .landingSearch,
+  .landingEducation {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .landingStart {
+    padding: 48px 0;
+  }
+
+  .landingFeature {
+    padding: 64px 0;
+  }
+
+  .landingRecent {
+    padding: 22px 18px 10px;
+  }
+
+  .landingTimeline {
+    padding: 26px 22px;
+  }
+
+  .landingSearch > div {
+    padding: 32px 26px;
+  }
+
+  .landingSearch img {
+    height: 230px;
+    min-height: 0;
+  }
+
+  .landingEducation {
+    margin-top: 60px;
+    padding: 36px 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landingHome button {
+    transition: none;
+  }
+}
+
+.landingSearch img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.landingSearch {
+  background: #eaf2fa;
+}
+
+
+.landingAnalysis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 90px;
+  padding: 100px 0 0;
+}
+
+.landingAnalysis > div > p {
+  margin: 26px 0;
+  color: #596b80;
+  font-size: 17px;
+}
+
+.landingAnalysisDemo {
+  padding: 32px;
+  border: 1px solid #e0e7ee;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 22px 60px -36px #315b8b66;
+}
+
+.landingAnalysisDemo .landingAnalysisMessage {
+  margin: 18px 0 24px;
+  padding: 22px;
+  border-radius: 6px;
+  background: #f1f5fa;
+  color: #253d58;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.landingAnalysisResult {
+  padding-top: 24px;
+  border-top: 1px solid #e5eaf0;
+}
+
+.landingAnalysisStatus {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: #fff0eb;
+  color: #b84429;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.landingAnalysisResult h3 {
+  margin: 16px 0 10px;
+  color: #253d58;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.landingAnalysisResult p {
+  margin: 0;
+  color: #68798b;
+  font-size: 14px;
+}
+
+.landingAnalysisDemo > small {
+  display: block;
+  margin-top: 24px;
+  color: #788596;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .landingAnalysis {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 60px;
+  }
+
+  .landingAnalysisDemo {
+    padding: 24px;
+  }
+}
+
+/* 사건 관리 */
+.incidentPage {
+  max-width: 1280px;
+  padding: 48px 24px 90px;
+}
+
+.incidentPage .workspace {
+  grid-template-columns: 240px minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+}
+
+/* 왼쪽 기록 목록 */
+.incidentPage .workspace > aside {
+  padding: 0;
+  border: 0;
+}
+
+.incidentPage aside > .primary {
+  min-height: 48px;
+  border-radius: 6px;
+  background: #2867aa;
+  border-color: #2867aa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.incidentPage aside > .primary:hover {
+  background: #20558e;
+}
+
+.incidentPage .listRefresh {
+  margin: 8px 0 24px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  color: #6c7e91;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.incidentPage .listRefresh:hover {
+  background: #eaf0f6;
+}
+
+.incidentPage .caseNav {
+  position: relative;
+  margin: 0 0 6px;
+  padding: 18px 18px 18px 20px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #526477;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.incidentPage .caseNav:hover {
+  background: #edf2f7;
+}
+
+.incidentPage .caseNav strong {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.incidentPage .caseNav small {
+  margin-top: 8px;
+  color: #7c8b9b;
+  font-size: 11px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.incidentPage .caseNav.selected {
+  border-color: #dbe6f2;
+  background: white;
+  color: #215c97;
+}
+
+.incidentPage .caseNav.selected::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #2867aa;
+}
+
+/* 오른쪽 상세 영역 */
+.incidentPage .workspace > section {
+  padding: 38px 40px 44px;
+  border: 1px solid #e1e7ee;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 16px 48px -36px #244d7840;
+}
+
+.incidentPage .workspace .caseReadable {
+  background: transparent;
+}
+
+.incidentPage .workspace .caseReadableTitle {
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e7ecf2;
+}
+
+.incidentPage .workspace .caseReadableStatus {
+  display: inline-flex;
+  margin: 0 0 18px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: #edf4fb;
+  color: #47739d;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.incidentPage .workspace .caseReadableTitle h2 {
+  color: #172e45;
+  font-size: clamp(25px, 2.4vw, 34px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+}
+
+/* 수정·삭제 */
+.incidentPage .workspace .caseReadableActions {
+  gap: 8px;
+  margin: 22px 0 20px;
+}
+
+.incidentPage .workspace .caseReadableActions button {
+  min-height: 36px;
+  padding: 7px 13px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.incidentPage .workspace .caseReadableActions .primary {
+  background: #edf4fb;
+  border-color: #edf4fb;
+  color: #2867aa;
+}
+
+.incidentPage .workspace .caseReadableActions .primary:hover {
+  background: #dfeaf6;
+}
+
+.incidentPage .workspace .caseReadableActions .danger {
+  border-color: transparent;
+  background: transparent;
+  color: #a34d46;
+}
+
+.incidentPage .workspace .caseReadableActions .danger:hover {
+  background: #fff2ef;
+}
+
+/* 작성·수정 날짜 */
+.incidentPage .workspace .caseReadableDates {
+  gap: 8px 24px;
+}
+
+.incidentPage .workspace .caseReadableDates time,
+.incidentPage .workspace .caseReadableDates > span > span {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* 설명과 구역 제목 */
+.incidentPage .workspace .caseReadableSection {
+  margin-top: 34px;
+}
+
+.incidentPage .workspace .caseReadableSection h3 {
+  margin-bottom: 18px;
+  color: #253d55;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.incidentPage .workspace .caseReadableDescription {
+  color: #536477;
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+/* 기본 정보: 세로 테두리 없는 표 */
+.incidentPage .workspace .caseInfoTable {
+  border-top: 1px solid #e2e8f0;
+}
+
+.incidentPage .workspace .caseInfoTable th,
+.incidentPage .workspace .caseInfoTable td {
+  padding: 18px 16px;
+  border: 0;
+  border-bottom: 1px solid #e7ecf2;
+  background: transparent;
+  font-size: 14px;
+}
+
+.incidentPage .workspace .caseInfoTable th {
+  width: 160px;
+  color: #7b8998;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.incidentPage .workspace .caseInfoTable td {
+  color: #30465c;
+  font-weight: 500;
+}
+
+/* 타임라인 */
+.incidentPage .workspace .caseTimelineCards {
+  gap: 14px;
+}
+
+.incidentPage .workspace .caseTimelineCard {
+  padding: 22px;
+  border-color: #e3eaf2;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+/* 공개 설정 */
+.incidentPage .publicationSettings {
+  margin-top: 38px;
+  padding-top: 30px;
+  border-top: 1px solid #e7ecf2;
+}
+
+/* 작은 화면 */
+@media (max-width: 900px) {
+  .incidentPage .workspace {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .incidentPage .workspace > section {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .incidentPage {
+    padding: 28px 16px 60px;
+  }
+
+  .incidentPage .workspace {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .incidentPage .workspace > aside {
+    max-height: 340px;
+    overflow-y: auto;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dfe6ee;
+  }
+
+  .incidentPage .workspace > section {
+    padding: 26px 20px;
+  }
+
+  .incidentPage .workspace .caseInfoTable th {
+    width: 110px;
+  }
+
+  .incidentPage .workspace .caseInfoTable th,
+  .incidentPage .workspace .caseInfoTable td {
+    padding: 14px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .incidentPage .caseNav {
+    transition: none;
+  }
+}
+
+/* 공개 사례 검색 */
+.publicSearchForm {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 12px 0 24px;
+  border-bottom: 0;
+}
+
+.publicSearchForm label {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: #243d55;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.publicSearchForm input {
+  width: 100%;
+  height: 60px;
+  margin-top: 14px;
+  padding: 0 26px;
+  border: 1px solid #dce5ef;
+  border-radius: 999px;
+  background: white;
+  color: #243d55;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: 0 6px 24px -14px #315b8b40;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.publicSearchForm input::placeholder {
+  color: #8a98a8;
+  font-weight: 400;
+}
+
+.publicSearchForm input:focus {
+  border-color: #397ab9;
+  outline: 2px solid #397ab925;
+  outline-offset: 3px;
+  box-shadow: 0 8px 28px -14px #2867aa60;
+}
+
+.publicSearchForm button {
+  flex-shrink: 0;
+  min-height: 60px;
+  margin: 0;
+  padding: 0 25px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.publicSearchForm .primary {
+  border-color: #2867aa;
+  background: #2867aa;
+  color: white;
+}
+
+.publicSearchForm .primary:hover {
+  border-color: #20558e;
+  background: #20558e;
+}
+
+.publicSearchForm button:not(.primary) {
+  border-color: #dce5ef;
+  background: white;
+  color: #526b84;
+}
+
+.publicSearchForm button:not(.primary):hover {
+  border-color: #b5cce2;
+  background: #edf4fb;
+}
+
+/* 검색 안내 */
+.publicSearchForm + .hint {
+  margin: 0 0 36px;
+  color: #748498;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* 공개 사례 목록 */
+.publicationResults {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.publicationResult {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 28px;
+  border: 1px solid #e0e7ef;
+  border-radius: 16px;
+  background: white;
+  color: #243d55;
+  text-align: left;
+  box-shadow: 0 8px 28px -22px #244d7840;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.publicationResult:hover {
+  transform: translateY(-3px);
+  border-color: #aac7e3;
+  background: white;
+  box-shadow: 0 16px 36px -24px #2867aa70;
+}
+
+.publicationResult:focus-visible {
+  outline: 3px solid #90b8e9;
+  outline-offset: 4px;
+}
+
+.publicationResult.selected {
+  border-color: #397ab9;
+  background: #f7fbff;
+  box-shadow: 0 0 0 1px #397ab9;
+}
+
+/* 채널·날짜 */
+.publicationResult > :first-child {
+  color: #7a8b9d;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* 사례 제목 */
+.publicationResult strong {
+  color: #1d3c5c;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+/* 사례 요약 */
+.publicationResult .publicationExcerpt {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #66798c;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* 자세히 보기 */
+.publicationResult > :last-child {
+  margin-top: auto;
+  padding-top: 16px;
+  color: #2867aa;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* 페이지 이동 */
+.publicationPager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  padding: 38px 0 12px;
+  color: #63778d;
+  font-size: 14px;
+}
+
+.publicationPager button {
+  min-width: 72px;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid #dfe7ef;
+  border-radius: 999px;
+  background: white;
+  color: #365574;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.publicationPager button:hover:not(:disabled) {
+  border-color: #aac7e3;
+  background: #edf4fb;
+}
+
+.publicationPager button:disabled {
+  opacity: 0.45;
+}
+
+/* 작은 화면 */
+@media (max-width: 800px) {
+  .publicSearchForm {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .publicSearchForm label {
+    flex: 1 1 100%;
+  }
+
+  .publicSearchForm button {
+    min-height: 46px;
+    padding: 0 22px;
+  }
+
+  .publicationResults {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .publicationResult {
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .publicSearchForm input,
+  .publicationResult {
+    transition: none;
+  }
+
+  .publicationResult:hover {
+    transform: none;
+  }
+}
+.publicationResults {
+  grid-template-columns: 1fr;
+}
+
+/* AI 분석 */
+.analysisPage {
+  max-width: 1040px;
+  padding: 48px 24px 90px;
+}
+
+/* 입력 패널 */
+.analysisForm {
+  padding: 36px;
+  border: 1px solid #e0e7ef;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 12px 40px -28px #244d7850;
+}
+
+.analysisFormHeading {
+  margin-bottom: 30px;
+}
+
+.analysisFormHeading h2 {
+  margin: 0 0 10px;
+  color: #1d3650;
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.5;
+}
+
+.analysisFormHeading p {
+  margin: 0;
+  color: #748498;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.analysisForm label {
+  display: block;
+  margin: 0 0 26px;
+  color: #30485f;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.analysisOptional {
+  margin-left: 8px;
+  color: #8996a5;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.analysisForm textarea {
+  display: block;
+  width: 100%;
+  min-height: 130px;
+  margin-top: 12px;
+  padding: 18px 20px;
+  border: 1px solid #dfe6ee;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #30485f;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.analysisForm textarea::placeholder {
+  color: #8b98a7;
+}
+
+.analysisForm textarea:focus {
+  border-color: #397ab9;
+  outline: 2px solid #397ab925;
+  outline-offset: 2px;
+  background: white;
+  box-shadow: 0 4px 18px -12px #2867aa60;
+}
+
+.analysisFormFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.analysisFormFooter > span {
+  color: #7d8b9b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.analysisFormFooter button {
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: #2867aa;
+  border-color: #2867aa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.analysisFormFooter button:hover:not(:disabled) {
+  background: #20558e;
+  border-color: #20558e;
+}
+
+.analysisLoading {
+  padding: 24px;
+  color: #657d95;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 결과 공통 */
+.analysisResult {
+  --result-color: #a46b18;
+  --result-background: #fffaf0;
+  --result-border: #ecd8ad;
+  --result-icon-background: #faedcf;
+
+  margin-top: 28px;
+  padding: 32px 36px;
+  border: 1px solid var(--result-border);
+  border-top: 4px solid var(--result-color);
+  border-radius: 16px;
+  background: var(--result-background);
+}
+
+/* 사기 의심 */
+.analysisResult.isRisk {
+  --result-color: #bd443d;
+  --result-background: #fff6f5;
+  --result-border: #efcfcb;
+  --result-icon-background: #fbe2de;
+}
+
+/* 뚜렷한 위험 신호 없음 */
+.analysisResult.isClear {
+  --result-color: #2867aa;
+  --result-background: #f3f8fe;
+  --result-border: #cbdff1;
+  --result-icon-background: #e0ecfa;
+}
+
+/* 결과 제목 */
+.analysisResultHeading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.analysisResultIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--result-icon-background);
+  color: var(--result-color);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.analysisResultLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #718092;
+  font-size: 12px;
+}
+
+.analysisResultHeading h2 {
+  margin: 0;
+  color: var(--result-color);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+
+/* 판정 근거 */
+.analysisReason {
+  margin-top: 26px;
+  padding: 24px;
+  border: 1px solid var(--result-border);
+  border-radius: 10px;
+  background: white;
+}
+
+.analysisReason h3 {
+  margin: 0 0 12px;
+  color: var(--result-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.analysisReason p {
+  margin: 0;
+  color: #526174;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.95;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.analysisEmergency {
+  margin: 20px 0 0;
+  color: #b23c36;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.analysisDisclaimer {
+  margin: 20px 0 0;
+  color: #778494;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .analysisPage {
+    padding: 28px 16px 60px;
+  }
+
+  .analysisForm {
+    padding: 26px 20px;
+    border-radius: 14px;
+  }
+
+  .analysisFormHeading h2 {
+    font-size: 23px;
+  }
+
+  .analysisFormFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .analysisFormFooter button {
+    width: 100%;
+  }
+
+  .analysisResult {
+    padding: 26px 20px;
+  }
+
+  .analysisResultHeading h2 {
+    font-size: 23px;
+  }
+
+  .analysisReason {
+    padding: 20px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .analysisForm textarea {
+    transition: none;
+  }
+}
+
+
+.reportToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e7ecf2;
+}
+
+.reportSaveButton {
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid #cbdced;
+  border-radius: 8px;
+  background: #f1f6fc;
+  color: #2867aa;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.reportSaveButton:hover:not(:disabled) {
+  border-color: #9fbfdf;
+  background: #e5eff9;
+}
+
+.reportToolbar > span {
+  color: #7a8999;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .reportToolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

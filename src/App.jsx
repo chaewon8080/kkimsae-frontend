@@ -5,6 +5,7 @@ import './styles.css';
 import EducationPage from './EducationPage';
 import { PublicationSettings, PublicCaseSearch, AdminPublications } from './PublicationPages';
 import IncidentImages from './IncidentImages';
+import { exportIncidentReport } from './exportIncidentReport';
 /* 공통 설정 */
 
 const pages = [
@@ -373,8 +374,9 @@ function IncidentDetail({
   return (
     <article className="caseReadable">
       <div className="caseReadableTitle">
-        <p className="caseReadableStatus">내 사건 · 비공개</p>
-
+<p className="caseReadableStatus">
+  내 사건 · 원본은 나만 볼 수 있어요
+</p>
         <h2>{incident.title}</h2>
 
         <div className="caseReadableActions">
@@ -972,34 +974,57 @@ function Analysis() {
     }
   }
 
-  return (
-    <main>
-      <form className="searchBox" onSubmit={submit}>
-        <fieldset className="plainFieldset" disabled={loading}>
+    return (
+    <main className="analysisPage">
+      <form className="analysisForm" onSubmit={submit}>
+        <div className="analysisFormHeading">
+          <h2>어떤 대화가 의심되나요?</h2>
+          <p>
+            받은 내용을 그대로 붙여넣고,
+            당시 상황도 함께 알려주세요.
+          </p>
+        </div>
+
+        <fieldset
+          className="plainFieldset"
+          disabled={loading}
+        >
           <label>
-            분석할 텍스트
+            문자·대화 내용
             <textarea
               required
               rows={7}
               maxLength={10000}
+              placeholder="의심되는 문자나 대화 내용을 입력해주세요."
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
           </label>
 
           <label>
-            상황 설명 (선택)
+            상황 설명
+            <span className="analysisOptional">선택</span>
+
             <textarea
               rows={3}
               maxLength={5000}
+              placeholder="예: 카드를 신청한 적이 없는데 배송 안내를 받았어요."
               value={situation}
               onChange={(e) => setSituation(e.target.value)}
             />
           </label>
 
-          <button className="primary" disabled={!text.trim()}>
-            {loading ? '분석 중…' : '분석하기'}
-          </button>
+          <div className="analysisFormFooter">
+            <span>이름·연락처 등 개인정보는 지워주세요.</span>
+
+            <button
+              type="submit"
+              className="primary"
+              disabled={loading || !text.trim()}
+            >
+              {loading ? '분석 중…' : '위험 신호 분석하기'}
+            </button>
+          </div>
         </fieldset>
 
         {error && (
@@ -1009,19 +1034,52 @@ function Analysis() {
         )}
       </form>
 
+      {loading && (
+        <p className="analysisLoading" role="status">
+          입력한 대화와 상황을 살펴보고 있어요.
+        </p>
+      )}
+
       {result && (
-        <section className="section" aria-live="polite">
-          <h2>{result.judgment}</h2>
-          <h3>판정 근거</h3>
-          <p>{result.reason}</p>
+        <section
+          className={`analysisResult ${
+            result.emergency ||
+            result.judgment === '사기 의심'
+              ? 'isRisk'
+              : result.judgment === '뚜렷한 위험 신호 없음'
+                ? 'isClear'
+                : 'isUncertain'
+          }`}
+          aria-live="polite"
+        >
+          <div className="analysisResultHeading">
+            <span className="analysisResultIcon" aria-hidden="true">
+              {result.emergency ||
+              result.judgment === '사기 의심'
+                ? '!'
+                : '?'}
+            </span>
+
+            <div>
+              <span className="analysisResultLabel">
+                분석 결과
+              </span>
+              <h2>{result.judgment}</h2>
+            </div>
+          </div>
+
+          <div className="analysisReason">
+            <h3>판정 근거</h3>
+            <p>{result.reason}</p>
+          </div>
 
           {result.emergency && (
-            <p className="error">
+            <p className="analysisEmergency">
               신체적 위협 표현이 감지되었습니다.
             </p>
           )}
 
-          <p className="hint">
+          <p className="analysisDisclaimer">
             분석 결과는 참고용이며 안전을 보장하지 않습니다.
           </p>
         </section>
@@ -1029,10 +1087,33 @@ function Analysis() {
     </main>
   );
 }
-
 /* 전체 앱 */
 
 export default function App() {
+
+const reportContentRef = useRef(null);
+const [reportExporting, setReportExporting] = useState(false);
+
+async function saveIncidentReport() {
+  if (!savedIncident || reportExporting) return;
+
+  setReportExporting(true);
+
+  try {
+    await exportIncidentReport({
+      content: reportContentRef.current,
+      title: savedIncident.title,
+    });
+  } catch (err) {
+    setNotice(
+      err.message || '사건 정리본을 만들지 못했습니다.'
+    );
+  } finally {
+    setReportExporting(false);
+  }
+}
+
+
   const [page, setPage] = useState(readPage);
 
   const [user, setUser] = useState(null);
@@ -1595,96 +1676,287 @@ export default function App() {
         </div>
       )}
 
-      {/* 홈 */}
-      {page === 'home' && (
-        <main>
-          <div className="actions homeMainActions">
-            <button
-              className="primary"
-              disabled={authLoading || busy}
-              onClick={newIncident}
-            >
-              내 사건 기록하기 ↗
-            </button>
-            <button onClick={() => navigate('search')}>
-              공개 사례 검색
-            </button>
-          </div>
+{/* 홈 */}
+{page === 'home' && (
+  <main className="landingHome">
+    <section className="landingStart">
+      <h2>
+        의심되는 순간부터,
+        <br />
+        다음 선택까지.
+      </h2>
 
-          <div className="heading">
-            <div>
-              <h2>이어서 정리할 사건</h2>
-            </div>
-            <button onClick={() => navigate('incidents')}>
-              전체 보기 →
-            </button>
-          </div>
+      <div>
+        <p>
+          겪은 일을 기록하고, 비슷한 사례를 살펴보고,
+          <br />
+          다시 마주할 상황을 연습하세요.
+        </p>
 
-          {authLoading || listLoading ? (
-            <div className="empty">불러오는 중…</div>
-          ) : !user ? (
-            <div className="empty">
-              로그인하고 사건 기록을 관리해보세요.
-              <button onClick={() => navigate('login')}>
-                로그인
-              </button>
-            </div>
-          ) : listError ? (
-            <div className="empty">
-              <p className="error">{listError}</p>
-              <button onClick={reloadList}>다시 불러오기</button>
-            </div>
-          ) : recentItems.length ? (
-            recentItems.map((incident) => (
-              <button
-                className="listRow"
-                key={incident.id}
-                disabled={busy}
-                onClick={() => openIncident(incident.id)}
-              >
-                <span>
-                  <strong>{incident.title}</strong>
-                  <small>
-                    수정 {formatDate(incident.updatedAt)}
-                  </small>
-                </span>
-                <span>상세 보기 →</span>
-              </button>
-            ))
-          ) : (
-            <div className="empty">
-              아직 기록한 사건이 없어요.
-              <button onClick={newIncident}>
-                첫 사건 기록하기
-              </button>
-            </div>
-          )}
+        <div className="actions">
+          <button
+            className="primary"
+            disabled={authLoading || busy}
+            onClick={newIncident}
+          >
+            사건 기록하기 ↗
+          </button>
 
-          <section className="homeGrid">
-            <div>
-              <h2>내 사건을 차근차근</h2>
-              <p>
-                전화번호·URL·계좌번호를 모으고 사건 진행을
-                시간순으로 기록하세요.
-              </p>
-              <button
-                disabled={authLoading || busy}
-                onClick={newIncident}
-              >
-                사건 작성하기 →
-              </button>
-            </div>
+          <button
+            className="landingText"
+            onClick={() => navigate('search')}
+          >
+            사례 찾아보기 →
+          </button>
+        </div>
+      </div>
+    </section>
 
-            <div>
-              <h2>대화 속 선택으로 대처 연습</h2>
-              <p>공식 자료 기반 대화 교육을 준비하고 있어요.</p>
-              <button onClick={() => navigate('education')}>
-                교육 둘러보기 →
-              </button>
-            </div>
-          </section>
-        </main>
+    <section className="landingRecent">
+      <div className="heading">
+        <h2>최근 기록</h2>
+
+        <button
+          className="landingText"
+          onClick={() => navigate('incidents')}
+        >
+          전체 보기 →
+        </button>
+      </div>
+
+      {authLoading || listLoading ? (
+        <div className="empty">불러오는 중…</div>
+      ) : !user ? (
+        <div className="empty">
+          로그인하고 사건 기록을 관리해보세요.
+
+          <button onClick={() => navigate('login')}>
+            로그인
+          </button>
+        </div>
+      ) : listError ? (
+        <div className="empty">
+          <p className="error">{listError}</p>
+
+          <button onClick={reloadList}>
+            다시 불러오기
+          </button>
+        </div>
+      ) : recentItems.length ? (
+        recentItems.map((incident) => (
+          <button
+            className="listRow"
+            key={incident.id}
+            disabled={busy}
+            onClick={() => openIncident(incident.id)}
+          >
+            <span>
+              <strong>{incident.title}</strong>
+
+              <small>
+                수정 {formatDate(incident.updatedAt)}
+              </small>
+            </span>
+
+            <span>상세 보기 →</span>
+          </button>
+        ))
+      ) : (
+        <div className="empty">
+          아직 기록한 사건이 없어요.
+
+          <button onClick={newIncident}>
+            첫 사건 기록하기
+          </button>
+        </div>
       )}
+    </section>
+
+    <section className="landingFeature">
+      <div className="landingFeatureCopy">
+        <h2>
+          흩어진 기록을
+          <br />
+          하나의 흐름으로.
+        </h2>
+
+        <p>
+          대화, 전화번호, 입금 내역.
+          <br />
+          따로 남아 있던 단서와 증거를 모으고
+          <br />
+          시간순으로 사건을 정리하세요.
+        </p>
+
+        <button
+          className="landingText"
+          disabled={authLoading || busy}
+          onClick={newIncident}
+        >
+          내 사건 기록하기 →
+        </button>
+      </div>
+
+      <div
+        className="landingTimeline"
+        aria-label="사건 기록 구성 예시"
+      >
+        <div className="landingDemoTitle">
+          사건 타임라인
+          <span>기록 예시</span>
+        </div>
+
+        <ol>
+          <li>
+            <span>첫 연락</span>
+            <strong>메신저로 아르바이트 제안</strong>
+            <p>상대방이 보낸 대화 캡처 보관</p>
+          </li>
+
+          <li>
+            <span>입금 요구</span>
+            <strong>업무 시작 전 보증금 요청</strong>
+            <p>전달받은 계좌번호 기록</p>
+          </li>
+
+          <li>
+            <span>추가 연락</span>
+            <strong>출금을 위한 추가 송금 요구</strong>
+            <p>연락 내용과 입금 내역 정리</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section className="landingSearch">
+      <div>
+        <h2>
+          나와 비슷한 일,
+          <br />
+          다른 기록에서 찾기.
+        </h2>
+
+        <p>
+          공개된 사례에서 상대의 접근 방식과 요구를 살펴보세요.
+          <br />
+          내가 겪은 상황을 이해하는 단서가 될 수 있어요.
+        </p>
+
+        <button
+          className="primary"
+          onClick={() => navigate('search')}
+        >
+          공개 사례 검색 →
+        </button>
+      </div>
+
+      <img
+        src="/images/case-search.png"
+        alt=""
+        loading="lazy"
+      />
+    </section>
+
+    <section className="landingEducation">
+      <div>
+        <h2>
+          알고 있어도,
+          <br />
+          막상 겪으면 다르니까.
+        </h2>
+
+        <p>
+          기관 사칭부터 링크를 이용한 접근까지.
+          <br />
+          가상 대화에서 직접 선택하고 대처 방법을 익혀보세요.
+        </p>
+
+        <button onClick={() => navigate('education')}>
+          대화 교육 시작하기 →
+        </button>
+      </div>
+
+      <div
+        className="landingConversation"
+        aria-label="대화 교육 예시"
+      >
+        <span className="landingDemoLabel">
+          가상 상황 예시
+        </span>
+
+        <p className="landingBubble">
+          본인 명의 계좌가 사건에 연루됐습니다.
+          <br />
+          지금 안내하는 계좌로 돈을 보내세요.
+        </p>
+
+        <p className="landingReply">
+          통화를 끊고 공식 번호로 확인할게요.
+        </p>
+
+        <div className="landingFeedback">
+          상대가 알려준 번호 대신,
+          <br />
+          직접 확인한 공식 연락처를 이용하세요.
+        </div>
+      </div>
+    </section>
+<section className="landingAnalysis">
+  <div>
+    <h2>
+      이 대화,
+      <br />
+      의심해봐야 할까요?
+    </h2>
+
+    <p>
+      받은 문자나 대화 내용을 상황과 함께 입력하세요.
+      <br />
+      AI가 위험 신호를 분석하고 판단 근거를 알려드려요.
+    </p>
+
+    <button
+      className="primary"
+      onClick={() => navigate('analysis')}
+    >
+      대화 분석하기 →
+    </button>
+  </div>
+
+  <div className="landingAnalysisDemo">
+    <span className="landingDemoLabel">
+      분석 예시
+    </span>
+
+    <p className="landingAnalysisMessage">
+      수익금을 출금하려면
+      <br />
+      보증금을 먼저 입금하셔야 합니다.
+    </p>
+
+    <div className="landingAnalysisResult">
+      <span className="landingAnalysisStatus">
+        사기 의심
+      </span>
+
+      <h3>출금 전에 돈을 요구하고 있어요.</h3>
+
+      <p>
+        수익금을 받기 위해 먼저 입금하라는 요구는
+        주의해서 확인해야 할 위험 신호예요.
+      </p>
+    </div>
+
+    <small>
+      이해를 돕기 위한 예시이며, 실제 분석 결과는
+      입력 내용에 따라 달라집니다.
+    </small>
+  </div>
+</section>
+
+
+  </main>
+)}
 
       {/* 사건 관리 로그인 확인 */}
       {page === 'incidents' && authLoading && (
@@ -1697,7 +1969,7 @@ export default function App() {
 
       {/* 사건 관리 */}
       {page === 'incidents' && !authLoading && user && (
-        <main>
+        <main className="incidentPage">
           <div className="workspace">
             <aside>
               <button
@@ -1814,28 +2086,48 @@ export default function App() {
               ) : savedIncident ? (
                 <>
                   {/* 조회 화면: 타임라인을 사건 내부에 배치 */}
-                  <IncidentDetail
-                    incident={savedIncident}
-                    eventCount={events.length}
-                    disabled={busy}
-                    onEdit={startEditing}
-                    onDelete={deleteIncident}
-                    onCopy={copyClue}
-                  >
-                    <TimelineSection
-                      incidentId={savedIncident.id}
-                      events={events}
-                      busy={busy}
-                    />
-                  </IncidentDetail>
+                  <div className="reportToolbar">
+  <button
+    type="button"
+    className="reportSaveButton"
+    disabled={busy || detailLoading || reportExporting}
+    onClick={saveIncidentReport}
+  >
+    {reportExporting
+      ? '정리본 준비 중…'
+      : '사건 정리본 저장'}
+  </button>
 
-                <IncidentImages
-  key={`${user.id}:${savedIncident.id}`}
-  incidentId={savedIncident.id}
+  <span>
+    인쇄 창에서 ‘PDF로 저장’을 선택하세요.
+  </span>
+</div>
+
+<div ref={reportContentRef}>
+  <IncidentDetail
+    incident={savedIncident}
+    eventCount={events.length}
+    disabled={busy}
+    onEdit={startEditing}
+    onDelete={deleteIncident}
+    onCopy={copyClue}
+  >
+    <TimelineSection
+      incidentId={savedIncident.id}
+      events={events}
+      busy={busy}
+    />
+  </IncidentDetail>
+
+  <IncidentImages
+    key={`${user.id}:${savedIncident.id}`}
+    incidentId={savedIncident.id}
     initialImages={savedIncident.images || []}
+    disabled={busy}
+  />
+</div>
 
-  disabled={busy}
-/>
+{/* 기존 PublicationSettings는 이 아래에 유지 */}
 
                   <PublicationSettings
                     key={`${user?.id}:${savedIncident.id}`}
