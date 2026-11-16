@@ -7,8 +7,9 @@
 // kkimsaeApi.js에서 /api/... 경로를 사용하므로
 // 여기서는 주소 끝의 /api를 제거한다.
 const API_BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL ||
-  'http://localhost:8080'
+  import.meta.env.PROD
+  ? window.location.origin
+  : (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080')
 )
   .trim()
   .replace(/\/+$/, '')
